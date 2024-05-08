@@ -6,7 +6,7 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(  X_SCREEN_SIZE , Y_SCREEN_SIZE), "Plant vs Zombie");
     sf::Texture texture;
-    if (!texture.loadFromFile("spirit_pic/Frontyard.png"))
+    if (!texture.loadFromFile("files/pics/Frontyard.png"))
     {
         return EXIT_FAILURE;
     }
