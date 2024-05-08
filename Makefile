@@ -1,26 +1,23 @@
-
-CXX = g++ -g -std=c++11
-
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -Wextra -I./include #-fsanitize=address -fsanitize=undefined
+LFLAGS = -L./files -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 SRCDIR = src
-BUILDDIR = build
+OBJDIR = obj
+BINDIR = .
+EXECUTABLE = $(BINDIR)/pvz.out
+MEDIA_PATH = ./files/
 
-SRCS := $(wildcard $(SRCDIR)/*.cpp)
-OBJS := $(patsubst $(SRCDIR)/%.cpp,$(BUILDDIR)/%.o,$(SRCS))
+SOURCES := $(wildcard $(SRCDIR)/*.cpp)
+OBJECTS := $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SOURCES))
 
-EXE = program.out
+all: $(EXECUTABLE)
 
-all: $(EXE)
+$(EXECUTABLE): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LFLAGS)
 
-$(EXE): $(OBJS)
-	$(CXX) $^ -o $@
-
-$(BUILDDIR)/%.o: $(SRCDIR)/%.cpp | $(BUILDDIR)
-	$(CXX) -c $< -o $@
-
-$(BUILDDIR):
-	mkdir -p $(BUILDDIR)
-
-.PHONY: all clean
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp $(wildcard $(SRCDIR)/*.hpp)
+	mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -I$(MEDIA_PATH)
 
 clean:
-	rm -f $(OBJS) $(EXE)
+	rm -rf $(OBJDIR)/*.o $(EXECUTABLE)
