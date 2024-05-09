@@ -10,12 +10,10 @@ using namespace sf;
 
 class Game {
 public:
-    Game(string title, string backgroundImage)
-        : window(VideoMode(X_WINDOW, Y_WINDOW), title),
-          backgroundTexture(),
-          backgroundSprite() 
+    Game()
+        : window(VideoMode(X_WINDOW, Y_WINDOW), window_title)
         {
-        backgroundTexture.loadFromFile(backgroundImage);
+        backgroundTexture.loadFromFile(background_image);
         backgroundSprite.setTexture(backgroundTexture);
     }
     void run() {
@@ -37,17 +35,17 @@ private:
     RenderWindow window;
     Texture backgroundTexture;
     Sprite backgroundSprite;
-    string 
+    string window_title = "PVZ";
+    string background_image = "files/pics/Frontyard.png";
 };
 
 int main() {
     try {
-        Game mainWindow("SFML Window with Background", "Frontyard.png");
+        Game mainWindow;
         mainWindow.run();
     } catch (const std::exception& e) {
             cerr << "Error: " << e.what() << endl; 
         return EXIT_FAILURE;
     }
-
     return EXIT_SUCCESS;
 }
