@@ -4,7 +4,7 @@ LFLAGS = -L./files -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 SRCDIR = src
 OBJDIR = obj
 BINDIR = .
-EXECUTABLE = $(BINDIR)/a.out
+EXECUTABLE = $(BINDIR)/pvz.out
 MEDIA_PATH = ./files/
 
 SOURCES := $(wildcard $(SRCDIR)/*.cpp)
