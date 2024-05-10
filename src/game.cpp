@@ -7,9 +7,8 @@ public:
         if(!frontyard_tex.loadFromFile(BACKGROUND_IMAGE_ADDRESS)){
             cerr << "fialed to open frontyard image!!!";
         }
-        Vector2f screen_size = {X_WINDOW , Y_WINDOW};
-        rec_shape.setSize(screen_size);
-        rec_shape.setTexture(&frontyard_tex);
+        frontyard_sprite.setTexture(frontyard_tex);
+        
 
 
     }
@@ -23,8 +22,8 @@ public:
     void run(){
         while(window.isOpen()){
             window.clear(Color::Black);
+            window.draw(frontyard_sprite);
             mouse_press_handeling();
-            window.draw(rec_shape);
             window.display();
         }
     }
@@ -32,7 +31,7 @@ private:
     RenderWindow window;
     Event event;
     Texture frontyard_tex;
-    RectangleShape rec_shape;
+    Sprite frontyard_sprite;
 };
 
 int main(){
