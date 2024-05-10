@@ -5,6 +5,9 @@
 #include <SFML/Window.hpp>
 #include <string>
 #include <iostream>
+#include <random>
+#include <chrono>
+#include "random_number.hpp"
 #define X_WINDOW 1400
 #define Y_WINDOW 600
 #define WINDOWS_TITLE "PVZ"

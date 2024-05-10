@@ -64,5 +64,6 @@ private:
 int main(){
     Game pvz;
     pvz.run();
+    cout << random_number(1 , 10) << endl;
     return 0;
 }
