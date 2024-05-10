@@ -22,7 +22,6 @@ private:
     Texture zombie_texture;
     Sprite zombie_sprite;
 };
-
 class Game{
 public:
     RenderWindow window;
@@ -34,6 +33,7 @@ public:
         frontyard_sprite.setTexture(frontyard_tex);
         zombie = new Zombie({900 , 50});
     }
+
     void mouse_press_handeling(){
         while(window.pollEvent(event)){
             if(event.type == Event::EventType::Closed){
@@ -64,6 +64,5 @@ private:
 int main(){
     Game pvz;
     pvz.run();
-    cout << random_number(1 , 10) << endl;
     return 0;
 }
