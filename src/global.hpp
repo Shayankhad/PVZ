@@ -9,6 +9,7 @@
 #define Y_WINDOW 600
 #define WINDOWS_TITLE "PVZ"
 #define BACKGROUND_IMAGE_ADDRESS "files/pics/Frontyard.png"
+#define ZOMBIE_IMAGE_ADDRESS "files/pics/Normal_Zombie.png"
 using namespace std;
 using namespace sf;
 #endif
