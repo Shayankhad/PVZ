@@ -7,8 +7,9 @@ public:
             cerr << "failed to load zombie image";
         }
         zombie_sprite.setTexture(zombie_texture);
-        //zombie_sprite.setScale(50 , 50);
+        zombie_sprite.setScale({0.2 , 0.2});
         zombie_sprite.setPosition(start_pos);
+
     }
     void render_zombie(RenderWindow &window){
         window.draw(zombie_sprite);
@@ -28,7 +29,7 @@ public:
             cerr << "fialed to open frontyard image!!!";
         }
         frontyard_sprite.setTexture(frontyard_tex);
-        zombie = new Zombie({600 , 300});
+        zombie = new Zombie({0 , 0});
         
         
     }
