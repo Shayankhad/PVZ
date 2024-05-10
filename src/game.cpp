@@ -31,7 +31,7 @@ public:
             cerr << "fialed to open frontyard image!!!";
         }
         frontyard_sprite.setTexture(frontyard_tex);
-        zombie = new Zombie({900 , 50});
+        //zombie = new Zombie({900 , 50});
     }
 
     void mouse_press_handeling(){
@@ -41,20 +41,37 @@ public:
             }
         }
     }
+    void make_zombie(){
+        zombie_temp = new Zombie({900 , 50});
+        zombies.emplace_back(zombie_temp);
+    }
+
     void run(){
+        Clock clock;
+        Time time_passed = seconds(0);
         while(window.isOpen()){
+            time_passed += clock.restart();
+            if(time_passed > seconds(3)){
+                window.close();
+            }
+
             window.clear(Color::Black);
             window.draw(frontyard_sprite);
-            zombie->render_zombie(window);
+            make_zombie();
+            for(auto& zombie : zombies){
+                zombie->render_zombie(window);
+            }
             mouse_press_handeling();
             window.display();
         }
     }
     ~Game(){
-        delete zombie;
+        delete zombie_temp;
     }
 private:
-    Zombie *zombie;
+    //Zombie *zombie;
+    vector <Zombie*> zombies;
+    Zombie *zombie_temp;
     Event event;
     Texture frontyard_tex;
     Sprite frontyard_sprite;
