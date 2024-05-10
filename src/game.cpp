@@ -31,6 +31,7 @@ public:
             cerr << "fialed to open frontyard image!!!";
         }
         frontyard_sprite.setTexture(frontyard_tex);
+        zombie = new Zombie();
         zombie->set_start_pos({1300 , 300});
     }
     void mouse_press_handeling(){
@@ -48,6 +49,9 @@ public:
             mouse_press_handeling();
             window.display();
         }
+    }
+    ~Game(){
+        delete zombie;
     }
 private:
     Zombie *zombie;
