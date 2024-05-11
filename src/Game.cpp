@@ -13,9 +13,11 @@ Game::Game(){
 
 void Game::mouse_press_handeling(){
     while(window.pollEvent(event)){
+        
         if(event.type == Event::EventType::Closed){
             window.close();
         }
+        plant->plant_mouse_handle(&event , &window);
     }
 }
 
