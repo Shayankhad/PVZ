@@ -13,6 +13,8 @@
 #define WINDOWS_TITLE "PVZ"
 #define BACKGROUND_IMAGE_ADDRESS "files/pics/Frontyard.png"
 #define ZOMBIE_IMAGE_ADDRESS "files/pics/Normal_Zombie.png"
+#define PEASHOOTER_IMAGE_ADDRESS "files/pics/Peashooter.png" 
+#define PEA_IMAGE_ADDRESS "files/pics/Pea.png"
 using namespace std;
 using namespace sf;
 #endif

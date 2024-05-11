@@ -38,6 +38,8 @@ public:
             }
         }
     }
+
+
     void make_zombie(){
 
         int random_num = random_number(1 , 5);
@@ -62,6 +64,7 @@ public:
             zombies.emplace_back(zombie_temp);
         }
     }
+
 
     void run(){
         while(window.isOpen()){
