@@ -12,13 +12,14 @@ public:
         plant_sprite.setScale({0.05 , 0.05});
         temp_pea = new Pea({10 ,10});
         pea_vec.emplace_back(temp_pea);
+
+    }
+
+    void make_pea(){
+
     }
     void render_plant(RenderWindow &window){
         window.draw(plant_sprite);
-        //Vector2f plant_pos = plant_sprite.getPosition();
-        //Pea * temp_pea;
-        //temp_pea = new Pea(plant_pos);
-        //window.draw(temp_pea->get_pea_sprite());
         for(auto& pea : pea_vec){
             pea->render_pea(window);
         }

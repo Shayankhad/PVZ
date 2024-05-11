@@ -10,6 +10,7 @@ public:
     void mouse_press_handeling();
     void make_zombie();
     void run();
+    Time get_elapsed_time();
     ~Game();
 private:
     //Zombie *zombie;

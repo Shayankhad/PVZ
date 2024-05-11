@@ -13,7 +13,7 @@ public:
         pea_sprite.setScale({0.15 , 0.15});
     }
     void render_pea(RenderWindow &window){
-        pea_sprite.move(2 , 0);
+        pea_sprite.move(3 , 0);
         window.draw(pea_sprite);
         
     }

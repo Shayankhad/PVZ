@@ -64,6 +64,14 @@ void Game::run(){
         window.display();
     }
 }
+
+Time Game::get_elapsed_time(){
+    Time elapsed_time;
+    elapsed_time = clock.getElapsedTime();
+    return elapsed_time;
+}
+
+
 Game::~Game(){
     delete zombie_temp;
     delete plant;
