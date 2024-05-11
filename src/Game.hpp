@@ -20,6 +20,7 @@ private:
     Sprite frontyard_sprite;
     Clock clock;
     Time last_time_made_zombie;
+    Plant *plant;
 };
 #endif
 

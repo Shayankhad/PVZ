@@ -9,7 +9,10 @@ public:
             cerr << "failed to load zombie image";
         }
         plant_sprite.setTexture(plant_texture);
-        plant_sprite.setScale({0.2 , 0.2});
+        plant_sprite.setScale({0.05 , 0.05});
+    }
+    void render_plant(RenderWindow &window){
+        window.draw(plant_sprite);
     }
 private:
     Texture plant_texture;

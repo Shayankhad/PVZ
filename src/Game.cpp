@@ -8,6 +8,7 @@ Game::Game(){
         cerr << "fialed to open frontyard image!!!";
     }
     frontyard_sprite.setTexture(frontyard_tex);
+    plant = new Plant();
 }
 
 void Game::mouse_press_handeling(){
@@ -56,12 +57,14 @@ void Game::run(){
         for(auto& zombie : zombies){
             zombie->render_zombie(window);
         }
+        plant->render_plant(window);
         mouse_press_handeling();
         window.display();
     }
 }
 Game::~Game(){
     delete zombie_temp;
+    delete plant;
 }
 
 
