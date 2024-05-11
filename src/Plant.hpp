@@ -10,16 +10,23 @@ public:
         }
         plant_sprite.setTexture(plant_texture);
         plant_sprite.setScale({0.05 , 0.05});
-        temp_pea = new Pea({10 ,10});
-        pea_vec.emplace_back(temp_pea);
-
     }
 
-    void make_pea(){
-
+    void make_pea(Clock *clock){
+        int elapsed_time = clock->getElapsedTime().asSeconds();
+        if((elapsed_time - last_time_made_pea.asSeconds()) >= 0.5){
+            Vector2f plant_pos = plant_sprite.getPosition();
+            plant_pos.x += 50;
+            plant_pos.y += 10;
+            temp_pea = new Pea(plant_pos);
+            
+            pea_vec.emplace_back(temp_pea);
+            last_time_made_pea = clock->getElapsedTime();
+        }
     }
-    void render_plant(RenderWindow &window){
+    void render_plant(RenderWindow &window , Clock *clock){
         window.draw(plant_sprite);
+        make_pea(clock);
         for(auto& pea : pea_vec){
             pea->render_pea(window);
         }
@@ -58,6 +65,7 @@ private:
     Vector2f offset;
     vector <Pea*> pea_vec;
     Pea *temp_pea;
+    Time last_time_made_pea = seconds(0);
 };
 
 #endif

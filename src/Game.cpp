@@ -59,7 +59,7 @@ void Game::run(){
         for(auto& zombie : zombies){
             zombie->render_zombie(window);
         }
-        plant->render_plant(window);
+        plant->render_plant(window , &clock);
         mouse_press_handeling();
         window.display();
     }
