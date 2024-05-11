@@ -8,6 +8,9 @@
 #include <random>
 #include <chrono>
 #include "random_number.hpp"
+#include "Game.hpp"
+#include "Zombie.hpp"
+
 #define X_WINDOW 1400
 #define Y_WINDOW 600
 #define WINDOWS_TITLE "PVZ"
