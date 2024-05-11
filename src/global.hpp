@@ -11,6 +11,7 @@
 #include "Game.hpp"
 #include "Zombie.hpp"
 #include "Plant.hpp"
+#include "Pea.hpp"
 
 
 #define X_WINDOW 1400

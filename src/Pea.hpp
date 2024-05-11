@@ -1,0 +1,35 @@
+#ifndef PEA_HPP
+#define PEA_HPP
+#include "global.hpp"
+
+class Pea{
+public:
+    Pea(Vector2f start_pos){
+        if(!pea_texture.loadFromFile(PEA_IMAGE_ADDRESS)){
+            cerr << "failed to load pea image";
+        }
+        pea_sprite.setTexture(pea_texture);
+        pea_sprite.setPosition(start_pos);
+        //pea_sprite.setScale({0.05 , 0.05});
+    }
+    void render_pea(RenderWindow &window){
+        window.draw(pea_sprite);
+    }
+
+private:
+    Texture pea_texture;
+    Sprite pea_sprite;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+#endif

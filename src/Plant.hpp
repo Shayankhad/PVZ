@@ -6,10 +6,9 @@ class Plant{
 public:
     Plant(){
         if(!plant_texture.loadFromFile(PEASHOOTER_IMAGE_ADDRESS)){
-            cerr << "failed to load zombie image";
+            cerr << "failed to load plant image";
         }
         plant_sprite.setTexture(plant_texture);
-        plant_sprite.setPosition(300 ,100);
         plant_sprite.setScale({0.05 , 0.05});
     }
     void render_plant(RenderWindow &window){
