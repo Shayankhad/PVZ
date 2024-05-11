@@ -10,12 +10,14 @@ public:
         }
         pea_sprite.setTexture(pea_texture);
         pea_sprite.setPosition(start_pos);
-        //pea_sprite.setScale({0.05 , 0.05});
+        pea_sprite.setScale({0.15 , 0.15});
     }
     void render_pea(RenderWindow &window){
         window.draw(pea_sprite);
     }
-
+    Sprite get_pea_sprite(){
+        return pea_sprite;
+    }
 private:
     Texture pea_texture;
     Sprite pea_sprite;

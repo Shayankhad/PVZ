@@ -10,9 +10,14 @@ public:
         }
         plant_sprite.setTexture(plant_texture);
         plant_sprite.setScale({0.05 , 0.05});
+
     }
     void render_plant(RenderWindow &window){
         window.draw(plant_sprite);
+        Vector2f plant_pos = plant_sprite.getPosition();
+        Pea * temp_pea;
+        temp_pea = new Pea(plant_pos);
+        window.draw(temp_pea->get_pea_sprite());
     }
     void plant_mouse_handle(Event * event , RenderWindow * window){
         if(event->type == Event::EventType::MouseButtonPressed){
@@ -45,6 +50,7 @@ private:
     Sprite plant_sprite;    
     bool is_dragging = false;
     Vector2f offset;
+    vector <Pea*> pea_vec;
 };
 
 #endif
