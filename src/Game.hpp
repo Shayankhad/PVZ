@@ -22,5 +22,6 @@ private:
     Time last_time_made_zombie;
     Plant *plant;
 };
+
 #endif
 
