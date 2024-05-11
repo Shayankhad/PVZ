@@ -10,6 +10,8 @@
 #include "random_number.hpp"
 #include "Game.hpp"
 #include "Zombie.hpp"
+#include "Plant.hpp"
+
 
 #define X_WINDOW 1400
 #define Y_WINDOW 600
