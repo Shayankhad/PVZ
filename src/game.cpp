@@ -3,11 +3,9 @@
 class Zombie{
 public:
     Zombie(Vector2f start_pos){
-
         if(!zombie_texture.loadFromFile(ZOMBIE_IMAGE_ADDRESS)){
             cerr << "failed to load zombie image";
         }
-        
         zombie_sprite.setTexture(zombie_texture);
         zombie_sprite.setScale({0.2 , 0.2});
         zombie_sprite.setPosition(start_pos);
@@ -15,7 +13,7 @@ public:
     void render_zombie(RenderWindow &window){
 
         window.draw(zombie_sprite);
-        zombie_sprite.move(-0.5 , 0);
+        zombie_sprite.move(-0.4 , 0);
     }
 
 private:
@@ -31,8 +29,6 @@ public:
             cerr << "fialed to open frontyard image!!!";
         }
         frontyard_sprite.setTexture(frontyard_tex);
-        zombie_temp = new Zombie({900 , 50});
-        zombies.emplace_back(zombie_temp);
     }
 
     void mouse_press_handeling(){
@@ -43,8 +39,28 @@ public:
         }
     }
     void make_zombie(){
-        zombie_temp = new Zombie({900 , 50});
-        zombies.emplace_back(zombie_temp);
+
+        int random_num = random_number(1 , 5);
+        if(random_num == 1){
+            zombie_temp = new Zombie({900 , 50});
+            zombies.emplace_back(zombie_temp);
+        }
+        if(random_num == 2){
+            zombie_temp = new Zombie({900 , 150});
+            zombies.emplace_back(zombie_temp);
+        }
+        if(random_num == 3){
+            zombie_temp = new Zombie({900 , 250});
+            zombies.emplace_back(zombie_temp);
+        }
+        if(random_num == 4){
+            zombie_temp = new Zombie({900 , 350});
+            zombies.emplace_back(zombie_temp);
+        }
+        if(random_num == 5){
+            zombie_temp = new Zombie({900 , 450});
+            zombies.emplace_back(zombie_temp);
+        }
     }
 
     void run(){
