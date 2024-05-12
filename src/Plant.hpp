@@ -24,6 +24,13 @@ public:
             last_time_made_pea = clock->getElapsedTime();
         }
     }
+    void remove_pea(Pea * pea_pointer){
+        for(vector<Pea*>::size_type i = 0 ; i < pea_vec.size() ; i++){
+            if(pea_vec[i] == pea_pointer){
+                pea_vec.erase(pea_vec.begin() + i);
+            }
+        }
+    }
     void render_plant(RenderWindow &window , Clock *clock){
         window.draw(plant_sprite);
         make_pea(clock);
@@ -57,15 +64,6 @@ public:
     }
     Sprite* get_plant_sprite_ptr(){
         return &plant_sprite;
-    }
-    bool is_intersected(Sprite * sprite_1 , Sprite * sprite_2 ){
-        FloatRect rect_1 = sprite_1->getGlobalBounds();
-        FloatRect rect_2 = sprite_2->getGlobalBounds();
-        if(rect_1.intersects(rect_2)){
-            return true;
-        }else{
-            return false;
-        }
     }
 private:
     Texture plant_texture;
