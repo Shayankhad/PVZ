@@ -11,7 +11,7 @@ public:
     void make_zombie();
     void run();
     Time get_elapsed_time();
-    bool is_intersected(Sprite * sprite_1 , Sprite * sprite_2 );
+    
     ~Game();
 private:
     //Zombie *zombie;

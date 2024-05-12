@@ -8,10 +8,12 @@
 #include <random>
 #include <chrono>
 #include "random_number.hpp"
+#include "is_intersected.hpp"
 #include "Game.hpp"
 #include "Zombie.hpp"
 #include "Plant.hpp"
 #include "Pea.hpp"
+
 
 
 #define X_WINDOW 1400
