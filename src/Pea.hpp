@@ -20,6 +20,9 @@ public:
     Sprite get_pea_sprite(){
         return pea_sprite;
     }
+    void disappear (){
+        
+    }
 private:
     Texture pea_texture;
     Sprite pea_sprite;
