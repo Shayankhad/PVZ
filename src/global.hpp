@@ -23,6 +23,8 @@
 #define ZOMBIE_IMAGE_ADDRESS "files/pics/Normal_Zombie.png"
 #define PEASHOOTER_IMAGE_ADDRESS "files/pics/Peashooter.png" 
 #define PEA_IMAGE_ADDRESS "files/pics/Pea.png"
+#define OPENED_PEASHOOTER_LABEL_ADDRESS "files/pics/Opened Peashooter Label.png"
+#define CLOSED_PEASHOOTER_LABEL_ADDRESS "files/pics/Closed Peashooter Label.png"
 #define PEA_DAMAGE 25
 #define ZOMBIE_HEALTH 100
 using namespace std;

@@ -74,7 +74,6 @@ public:
                 zombie_pointer->decrease_health(PEA_DAMAGE);
             }
         }
-
     }
 private:
     Texture plant_texture;
