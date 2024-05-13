@@ -14,17 +14,27 @@ public:
         dot_sprite.setOrigin(dot_sprite.getLocalBounds().width / 2 , dot_sprite.getLocalBounds().height/2 );
     }
     void draw_dot(RenderWindow &window){
-        window.draw(dot_sprite);
+        if(!is_dot_full){
+            window.draw(dot_sprite);
+        }
+        
     }
 
     Sprite* dot_get_sprite(){
         return &dot_sprite;
+    }
+    Vector2f get_dot_position(){
+        return dot_sprite.getPosition();
+    }
+    void set_is_dot_full(bool full ){
+        is_dot_full = full;
     }
     
 
 private:
     Texture dot_texture;
     Sprite dot_sprite;
+    bool is_dot_full = false;
 };
 
 #endif

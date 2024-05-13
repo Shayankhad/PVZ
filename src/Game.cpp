@@ -28,9 +28,10 @@ void Game::mouse_press_handeling(){
                 if(event.mouseButton.button == Mouse::Left){
                     if(dot->dot_get_sprite()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y )){
                         is_dot_board_open = false;
-                        Vector2i mouse_position = Mouse::getPosition(window);
-                        Vector2f mouse_position_float(static_cast<float>(mouse_position.x) ,static_cast<float>(mouse_position.y) );
-                        make_plant(mouse_position_float);
+                        //Vector2i mouse_position = Mouse::getPosition(window);
+                        //Vector2f mouse_position_float(static_cast<float>(mouse_position.x) ,static_cast<float>(mouse_position.y) );
+                        make_plant(dot->get_dot_position());
+                        dot->set_is_dot_full(true);
                     }
                 }
             }
