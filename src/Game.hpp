@@ -2,7 +2,6 @@
 #define GAME_HPP
 #include "global.hpp"
 
-
 class Game{
 public:
     RenderWindow window;
@@ -14,7 +13,6 @@ public:
     void check_dead_zombies();
     ~Game();
 private:
-    //Zombie *zombie;
     vector <Zombie*> zombies;
     Zombie *zombie_temp;
     Event event;
@@ -22,7 +20,7 @@ private:
     Sprite frontyard_sprite;
     Clock clock;
     Time last_time_made_zombie;
-    Plant *plant;
+    vector<Plant*> plant_vec;
     Plant_label *plant_label;
 };
 

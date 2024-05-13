@@ -8,7 +8,8 @@ Game::Game(){
         cerr << "fialed to open frontyard image!!!";
     }
     frontyard_sprite.setTexture(frontyard_tex);
-    plant = new Plant();
+    Plant * plant_ptr = new Plant();
+    plant_vec.emplace_back(plant_ptr);
     plant_label = new Plant_label();
 }
 
@@ -18,7 +19,9 @@ void Game::mouse_press_handeling(){
         if(event.type == Event::EventType::Closed){
             window.close();
         }
-        plant->plant_mouse_handle(&event , &window);
+        for(auto& plant : plant_vec){
+            plant->plant_mouse_handle(&event , &window);
+        }
     }
 }
 
@@ -60,10 +63,14 @@ void Game::run(){
         plant_label->render_plant_label(window);
         for(auto& zombie : zombies){
             zombie->render_zombie(window);
-            plant->pea_hit_zombie((zombie->get_zombie_sprite()) , zombie);
+            for(auto& plant : plant_vec){
+                plant->pea_hit_zombie((zombie->get_zombie_sprite()) , zombie);
+            }
         }
         check_dead_zombies();
-        plant->render_plant(window , &clock);
+        for(auto& plant : plant_vec){
+           plant->render_plant(window , &clock); 
+        }
         mouse_press_handeling();
         window.display();
     }
@@ -88,7 +95,6 @@ void Game::check_dead_zombies(){
 
 Game::~Game(){
     delete zombie_temp;
-    delete plant;
 }
 
 
