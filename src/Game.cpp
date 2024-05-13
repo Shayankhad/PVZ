@@ -22,6 +22,9 @@ void Game::mouse_press_handeling(){
             plant->plant_mouse_handle(&event , &window);
         }
         clicked_on_label();
+        for(auto & dot : dot_vec){
+            dot->dot_mouse_handle(&event, is_dot_board_open );
+        }
     }
 }
 
@@ -78,10 +81,8 @@ void Game::run(){
                 dot->draw_dot(window);
             }
         }
-
         window.display();
     }
-    
 }
 
 Time Game::get_elapsed_time(){

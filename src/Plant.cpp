@@ -59,6 +59,7 @@ void Plant::plant_mouse_handle(Event * event , RenderWindow * window){
         plant_sprite.setPosition(mouse_pos.x + offset.x , mouse_pos.y + offset.y);
     }
 }   
+
 bool Plant::get_is_dragging(){
     return is_dragging;
 }
