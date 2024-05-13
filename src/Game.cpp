@@ -9,6 +9,7 @@ Game::Game(){
     }
     frontyard_sprite.setTexture(frontyard_tex);
     plant = new Plant();
+    plant_label = new Plant_label();
 }
 
 void Game::mouse_press_handeling(){
@@ -53,9 +54,10 @@ void Game::run(){
             make_zombie();
             last_time_made_zombie = clock.getElapsedTime();
         }
+        
         window.clear(Color::Black);
         window.draw(frontyard_sprite);
-        
+        plant_label->render_plant_label(window);
         for(auto& zombie : zombies){
             zombie->render_zombie(window);
             plant->pea_hit_zombie((zombie->get_zombie_sprite()) , zombie);
