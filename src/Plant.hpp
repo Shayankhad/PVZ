@@ -11,7 +11,7 @@ public:
         }
         plant_sprite.setTexture(plant_texture);
         plant_sprite.setScale({0.05 , 0.05});
-        plant_sprite.setPosition(300 , 300);
+        plant_sprite.setPosition(50 , 300);
     }
 
     void make_pea(Clock *clock){
