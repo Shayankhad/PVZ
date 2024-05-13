@@ -67,10 +67,11 @@ public:
     Sprite* get_plant_sprite_ptr(){
         return &plant_sprite;
     }
-    void x(Sprite *zombie_sprite){
+    void pea_hit_zombie(Sprite *zombie_sprite , Zombie *zombie_pointer){
         for(vector<Pea*>::size_type i = 0 ; i < pea_vec.size() ; i++){
             if(is_intersected( (pea_vec[i]->get_pea_sprite()) , *zombie_sprite)){
                 pea_vec.erase(pea_vec.begin() + i);
+                zombie_pointer->decrease_health(100);
             }
         }
 

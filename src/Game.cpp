@@ -58,8 +58,9 @@ void Game::run(){
         
         for(auto& zombie : zombies){
             zombie->render_zombie(window);
-            plant->x((zombie->get_zombie_sprite()));
+            plant->pea_hit_zombie((zombie->get_zombie_sprite()) , zombie);
         }
+        check_dead_zombies();
         plant->render_plant(window , &clock);
         mouse_press_handeling();
         window.display();
@@ -71,6 +72,14 @@ Time Game::get_elapsed_time(){
     Time elapsed_time;
     elapsed_time = clock.getElapsedTime();
     return elapsed_time;
+}
+
+void Game::check_dead_zombies(){
+    for (vector<Zombie*>::size_type i = 0; i < zombies.size() ; i++){
+        if(zombies[i]->get_health() <=0){
+            zombies.erase(zombies.begin() + i);
+        }
+    }
 }
 
 

@@ -11,7 +11,7 @@ public:
     void make_zombie();
     void run();
     Time get_elapsed_time();
-    
+    void check_dead_zombies();
     ~Game();
 private:
     //Zombie *zombie;

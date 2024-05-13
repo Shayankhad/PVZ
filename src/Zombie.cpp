@@ -17,4 +17,11 @@ void Zombie::render_zombie(RenderWindow &window){
 
 Sprite* Zombie::get_zombie_sprite(){
         return &zombie_sprite;
-    }
+}
+
+void Zombie::decrease_health(int damage){
+    health -= damage;
+}
+int Zombie::get_health(){
+    return health;
+}
