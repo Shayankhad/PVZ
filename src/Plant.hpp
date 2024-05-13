@@ -71,7 +71,7 @@ public:
         for(vector<Pea*>::size_type i = 0 ; i < pea_vec.size() ; i++){
             if(is_intersected( (pea_vec[i]->get_pea_sprite()) , *zombie_sprite)){
                 pea_vec.erase(pea_vec.begin() + i);
-                zombie_pointer->decrease_health(100);
+                zombie_pointer->decrease_health(PEA_DAMAGE);
             }
         }
 

@@ -11,6 +11,6 @@ public:
 private:
     Texture zombie_texture;
     Sprite zombie_sprite;
-    int health = 100;
+    int health = ZOMBIE_HEALTH;
 };
 #endif
