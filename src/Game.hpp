@@ -27,6 +27,7 @@ private:
     Plant_label *plant_label;
     vector<Dot*> dot_vec;
     Dot * temp_dot;
+    bool is_dot_board_open = false;
 };
 
 #endif

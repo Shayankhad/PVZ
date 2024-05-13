@@ -73,10 +73,11 @@ void Game::run(){
            plant->render_plant(window , &clock); 
         }
         mouse_press_handeling();
-        for(auto & dot : dot_vec ){
-            dot->draw_dot(window);
+        if(is_dot_board_open){
+            for(auto & dot : dot_vec ){
+                dot->draw_dot(window);
+            }
         }
-        
 
         window.display();
     }
@@ -107,6 +108,7 @@ void Game::clicked_on_label(){
         if(event.mouseButton.button == Mouse::Left){
             if(plant_label->get_plant_label()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y )){
                 make_plant();
+                is_dot_board_open = true;
             }
         }
     }
