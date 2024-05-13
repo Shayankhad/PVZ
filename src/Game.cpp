@@ -8,8 +8,6 @@ Game::Game(){
         cerr << "fialed to open frontyard image!!!";
     }
     frontyard_sprite.setTexture(frontyard_tex);
-    Plant * plant_ptr = new Plant();
-    plant_vec.emplace_back(plant_ptr);
     plant_label = new Plant_label();
 }
 
@@ -106,6 +104,7 @@ void Game::clicked_on_label(){
         }
     }
 }
+
 Game::~Game(){
     delete zombie_temp;
 }
