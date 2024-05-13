@@ -5,7 +5,7 @@
 
 class Plant{
 public:
-    Plant();
+    Plant(Vector2f plant_position);
 
     void make_pea(Clock *clock);
     void remove_pea(Pea * pea_pointer);

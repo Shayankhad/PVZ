@@ -11,7 +11,7 @@ public:
     void run();
     Time get_elapsed_time();
     void check_dead_zombies();
-    void make_plant();
+    void make_plant(Vector2f plant_position);
     void clicked_on_label();
     void make_dot_board();
     ~Game();

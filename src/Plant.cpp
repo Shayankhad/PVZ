@@ -2,13 +2,14 @@
 
 
 
-Plant::Plant(){
+Plant::Plant(Vector2f plant_position){
     if(!plant_texture.loadFromFile(PEASHOOTER_IMAGE_ADDRESS)){
         cerr << "failed to load plant image";
     }
     plant_sprite.setTexture(plant_texture);
+    plant_sprite.setOrigin(plant_sprite.getLocalBounds().width / 2 , plant_sprite.getLocalBounds().height/2 );
     plant_sprite.setScale({0.05 , 0.05});
-    plant_sprite.setPosition(50 , 300);
+    plant_sprite.setPosition(plant_position);
 }
 
 void Plant::make_pea(Clock *clock){

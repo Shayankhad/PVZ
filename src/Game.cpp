@@ -22,8 +22,18 @@ void Game::mouse_press_handeling(){
             plant->plant_mouse_handle(&event , &window);
         }
         clicked_on_label();
+
         for(auto & dot : dot_vec){
-            dot->dot_mouse_handle(&event, is_dot_board_open );
+            if(event.type == Event::EventType::MouseButtonPressed){
+                if(event.mouseButton.button == Mouse::Left){
+                    if(dot->dot_get_sprite()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y )){
+                        is_dot_board_open = false;
+                        Vector2i mouse_position = Mouse::getPosition(window);
+                        Vector2f mouse_position_float(static_cast<float>(mouse_position.x) ,static_cast<float>(mouse_position.y) );
+                        make_plant(mouse_position_float);
+                    }
+                }
+            }
         }
     }
 }
@@ -99,8 +109,8 @@ void Game::check_dead_zombies(){
     }
 }
 
-void Game::make_plant(){
-    Plant * plant_ptr = new Plant();
+void Game::make_plant(Vector2f plant_position){
+    Plant * plant_ptr = new Plant(plant_position);
     plant_vec.emplace_back(plant_ptr);
 }
 
@@ -108,7 +118,6 @@ void Game::clicked_on_label(){
     if(event.type == Event::EventType::MouseButtonPressed ){
         if(event.mouseButton.button == Mouse::Left){
             if(plant_label->get_plant_label()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y )){
-                make_plant();
                 is_dot_board_open = true;
             }
         }

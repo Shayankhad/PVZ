@@ -17,14 +17,8 @@ public:
         window.draw(dot_sprite);
     }
 
-    void dot_mouse_handle(Event * event, bool &is_dot_board_open ){
-        if(event->type == Event::EventType::MouseButtonPressed){
-            if(event->mouseButton.button == Mouse::Left){
-                if(dot_sprite.getGlobalBounds().contains(event->mouseButton.x , event->mouseButton.y )){
-                    is_dot_board_open = false;
-                }
-            }
-        }
+    Sprite* dot_get_sprite(){
+        return &dot_sprite;
     }
     
 
