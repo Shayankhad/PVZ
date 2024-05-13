@@ -13,6 +13,7 @@ public:
     void check_dead_zombies();
     void make_plant();
     void clicked_on_label();
+    void make_dot_board();
     ~Game();
 private:
     vector <Zombie*> zombies;
@@ -24,6 +25,8 @@ private:
     Time last_time_made_zombie;
     vector<Plant*> plant_vec;
     Plant_label *plant_label;
+    vector<Dot*> dot_vec;
+    Dot * temp_dot;
 };
 
 #endif

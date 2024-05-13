@@ -9,6 +9,7 @@ Game::Game(){
     }
     frontyard_sprite.setTexture(frontyard_tex);
     plant_label = new Plant_label();
+    make_dot_board();
 }
 
 void Game::mouse_press_handeling(){
@@ -52,12 +53,13 @@ void Game::make_zombie(){
 
 void Game::run(){
     while(window.isOpen()){
+        window.clear(Color::Black);
         if(clock.getElapsedTime().asSeconds() - last_time_made_zombie.asSeconds() >= 3){
             make_zombie();
             last_time_made_zombie = clock.getElapsedTime();
         }
         
-        window.clear(Color::Black);
+
         window.draw(frontyard_sprite);
         plant_label->render_plant_label(window);
         for(auto& zombie : zombies){
@@ -71,6 +73,11 @@ void Game::run(){
            plant->render_plant(window , &clock); 
         }
         mouse_press_handeling();
+        for(auto & dot : dot_vec ){
+            dot->draw_dot(window);
+        }
+        
+
         window.display();
     }
     
@@ -102,6 +109,31 @@ void Game::clicked_on_label(){
                 make_plant();
             }
         }
+    }
+}
+void Game::make_dot_board(){
+
+    // 300 325
+    // 374 
+    // 457
+    // 540
+    // 615
+    // 697
+    // 776
+    // 858
+    // 948
+    vector <Vector2f> dot_positions = {{295 , 130} , {374 , 130}
+    , {455 , 130} , {537 , 130} , {618 , 130} , {700 , 130} 
+    , {777 , 130} , {853 , 130} , {937 , 130} , {300 , 225} 
+    , {452 , 225} , {535 , 225} , {614 , 225} , {373 , 225}
+    , {695 , 225} , {775 , 225} , {850 , 225} , {943 , 225}
+    , {300 , 325} , {374 , 325} , {457 , 325} , {540 , 325}
+    , {615 , 325} , {697 , 325} , {776 , 325} , {856 , 325}
+    , {948 , 325}};
+    
+    for(auto& pos : dot_positions){
+        temp_dot = new Dot(pos);
+        dot_vec.emplace_back(temp_dot);
     }
 }
 

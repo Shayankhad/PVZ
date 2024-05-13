@@ -15,9 +15,6 @@
 #include "is_intersected.hpp"
 #include "Plant_label.hpp"
 #include "Dot.hpp"
-
-
-
 #define X_WINDOW 1400
 #define Y_WINDOW 600
 #define WINDOWS_TITLE "PVZ"
@@ -27,6 +24,7 @@
 #define PEA_IMAGE_ADDRESS "files/pics/Pea.png"
 #define OPENED_PEASHOOTER_LABEL_ADDRESS "files/pics/Opened Peashooter Label.png"
 #define CLOSED_PEASHOOTER_LABEL_ADDRESS "files/pics/Closed Peashooter Label.png"
+#define DOT_IMAGE_ADDRESS "files/pics/Dot.png"
 #define PEA_DAMAGE 25
 #define ZOMBIE_HEALTH 100
 using namespace std;
