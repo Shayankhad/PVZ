@@ -14,3 +14,7 @@ void Zombie::render_zombie(RenderWindow &window){
     window.draw(zombie_sprite);
     zombie_sprite.move(-0.4 , 0);
 }
+
+Sprite* Zombie::get_zombie_sprite(){
+        return &zombie_sprite;
+    }

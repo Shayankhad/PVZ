@@ -2,6 +2,7 @@
 #define PLANT_HPP
 #include "global.hpp"
 
+
 class Plant{
 public:
     Plant(){
@@ -31,6 +32,7 @@ public:
             }
         }
     }
+
     void render_plant(RenderWindow &window , Clock *clock){
         window.draw(plant_sprite);
         make_pea(clock);
@@ -64,6 +66,11 @@ public:
     }
     Sprite* get_plant_sprite_ptr(){
         return &plant_sprite;
+    }
+    void x(Sprite *zombie_sprite){
+        if(is_intersected(&plant_sprite , zombie_sprite)){
+            cout << "1";
+        }
     }
 private:
     Texture plant_texture;

@@ -58,11 +58,13 @@ void Game::run(){
         
         for(auto& zombie : zombies){
             zombie->render_zombie(window);
+            plant->x((zombie->get_zombie_sprite()));
         }
         plant->render_plant(window , &clock);
         mouse_press_handeling();
         window.display();
     }
+    
 }
 
 Time Game::get_elapsed_time(){

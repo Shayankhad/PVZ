@@ -5,6 +5,7 @@ class Zombie{
 public:
     Zombie(Vector2f start_pos);
     void render_zombie(RenderWindow &window);
+    Sprite* get_zombie_sprite();
 private:
     Texture zombie_texture;
     Sprite zombie_sprite;

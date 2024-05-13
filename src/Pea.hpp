@@ -16,12 +16,10 @@ public:
         pea_sprite.move(3 , 0);
         window.draw(pea_sprite);
         
+        
     }
     Sprite get_pea_sprite(){
         return pea_sprite;
-    }
-    void disappear (){
-        
     }
 private:
     Texture pea_texture;
