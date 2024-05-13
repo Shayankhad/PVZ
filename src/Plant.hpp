@@ -68,9 +68,12 @@ public:
         return &plant_sprite;
     }
     void x(Sprite *zombie_sprite){
-        if(is_intersected(&plant_sprite , zombie_sprite)){
-            cout << "1";
+        for(vector<Pea*>::size_type i = 0 ; i < pea_vec.size() ; i++){
+            if(is_intersected( (pea_vec[i]->get_pea_sprite()) , *zombie_sprite)){
+                pea_vec.erase(pea_vec.begin() + i);
+            }
         }
+
     }
 private:
     Texture plant_texture;
