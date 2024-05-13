@@ -16,6 +16,10 @@ public:
     void render_plant_label(RenderWindow &window){
         window.draw(plant_label_sprite);
     }
+    Sprite* get_plant_label(){
+        return &plant_label_sprite;
+    }
+
 private:    
     Texture plant_label_texture;
     Sprite plant_label_sprite;

@@ -11,6 +11,8 @@ public:
     void run();
     Time get_elapsed_time();
     void check_dead_zombies();
+    void make_plant();
+    void clicked_on_label();
     ~Game();
 private:
     vector <Zombie*> zombies;

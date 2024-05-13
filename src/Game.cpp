@@ -22,6 +22,7 @@ void Game::mouse_press_handeling(){
         for(auto& plant : plant_vec){
             plant->plant_mouse_handle(&event , &window);
         }
+        clicked_on_label();
     }
 }
 
@@ -91,8 +92,20 @@ void Game::check_dead_zombies(){
     }
 }
 
+void Game::make_plant(){
+    Plant * plant_ptr = new Plant();
+    plant_vec.emplace_back(plant_ptr);
+}
 
-
+void Game::clicked_on_label(){
+    if(event.type == Event::EventType::MouseButtonPressed ){
+        if(event.mouseButton.button == Mouse::Left){
+            if(plant_label->get_plant_label()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y )){
+                make_plant();
+            }
+        }
+    }
+}
 Game::~Game(){
     delete zombie_temp;
 }
