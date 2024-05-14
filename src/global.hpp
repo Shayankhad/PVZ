@@ -15,6 +15,7 @@
 #include "is_intersected.hpp"
 #include "Plant_label.hpp"
 #include "Dot.hpp"
+#include "Sun.hpp"
 #define X_WINDOW 1400
 #define Y_WINDOW 600
 #define WINDOWS_TITLE "PVZ"

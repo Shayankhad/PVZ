@@ -9,6 +9,8 @@ Game::Game(){
     frontyard_sprite.setTexture(frontyard_tex);
     plant_label = new Plant_label();
     make_dot_board();
+    sun_temp = new Sun();
+    sun_vec.emplace_back(sun_temp);
 }
 
 void Game::mouse_press_handeling(){
@@ -131,6 +133,10 @@ void Game::run(){
                 dot->draw_dot(window);
             }
         }
+        for(auto& sun : sun_vec){
+            sun->render_sun(&window);
+        }
+        
         window.display();
     }
 }

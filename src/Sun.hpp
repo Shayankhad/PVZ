@@ -11,6 +11,10 @@ public:
         sun_sprite.setTexture(sun_texture);
         sun_sprite.setOrigin(sun_sprite.getLocalBounds().width / 2 , sun_sprite.getLocalBounds().height/2 );
         sun_sprite.setScale({1, 1});
+        sun_sprite.setPosition(300 ,300);
+    }
+    void render_sun(RenderWindow *window){
+        window->draw(sun_sprite);
     }
 private:
     Texture sun_texture;

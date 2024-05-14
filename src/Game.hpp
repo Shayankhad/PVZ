@@ -31,6 +31,8 @@ private:
     Dot * temp_dot;
     bool is_dot_board_open = false;
     vector <bool> is_side_full;
+    vector<Sun*> sun_vec;
+    Sun *sun_temp;
 };
 
 #endif
