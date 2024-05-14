@@ -1,7 +1,5 @@
 #include "global.hpp"
 
-//make_pea
-
 
 Game::Game(){
     window.create(VideoMode(X_WINDOW , Y_WINDOW) , WINDOWS_TITLE);
@@ -87,15 +85,10 @@ void Game::check_side(){
 }
 
 void Game::render_plant_vec(){
-    //130 225 325 420 520
-    
+
     for(auto& plant : plant_vec){
-        if(plant->get_plant_y_position() == 130){
-            
+        if(plant->get_plant_y_position() == 130){     
             plant->render_plant(window , &clock ,is_side_full[0]);
-            
-            
-            //cout <<is_side_full[0];
         }
         if(plant->get_plant_y_position() == 225){
             plant->render_plant(window , &clock ,is_side_full[1]);
