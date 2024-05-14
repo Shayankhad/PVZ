@@ -20,6 +20,7 @@ public:
     void sun_mouse_handeling();
     void make_sun();
     void sun_time_handeling();
+    void set_text();
     ~Game();
 private:
     vector <Zombie*> zombies;

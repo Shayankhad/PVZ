@@ -217,6 +217,11 @@ void Game::sun_time_handeling(){
         last_time_made_sun = clock.getElapsedTime();
     }
 }
+
+// void Game::set_text(){
+//     Text text;
+//     //text.setFont(font);
+// }
 Game::~Game(){
     delete zombie_temp;
 }
