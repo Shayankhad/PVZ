@@ -37,15 +37,6 @@ void Game::mouse_press_handeling(){
                 }
             }
         }
-
-        // void Plant::remove_pea(Pea * pea_pointer){
-        //     for(vector<Pea*>::size_type i = 0 ; i < pea_vec.size() ; i++){
-        //         if(pea_vec[i] == pea_pointer){
-        //             pea_vec.erase(pea_vec.begin() + i);
-        //         }
-        //     }
-        // }
-
     }
 }
 
@@ -55,6 +46,7 @@ void Game::sun_mouse_handeling(){
             for(vector<Sun*>::size_type i = 0 ; i <sun_vec.size() ; i++){
                 if(sun_vec[i]->get_sun_sprite()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y )){
                     sun_vec.erase(sun_vec.begin() + i);
+                    collected_sun += 25;
                 }
             }
         }

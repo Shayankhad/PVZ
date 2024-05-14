@@ -38,6 +38,7 @@ private:
     vector <bool> is_side_full;
     vector<Sun*> sun_vec;
     Sun *sun_temp;
+    int collected_sun = 50;
 };
 
 #endif
