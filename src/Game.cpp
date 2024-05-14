@@ -218,10 +218,12 @@ void Game::sun_time_handeling(){
     }
 }
 
-// void Game::set_text(){
-//     Text text;
-//     //text.setFont(font);
-// }
+void Game::set_text(){
+    Text text;
+    Font font;
+    font.loadFromFile("files/Font/MontserratAlternates-Black.otf");
+    text.setFont(font);
+}
 Game::~Game(){
     delete zombie_temp;
 }
