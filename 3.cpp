@@ -20,7 +20,7 @@ public:
             // Handle error
         }
         gameScreen.setTexture(gameScreenTexture);
-
+        
         // Load menu textures
         if (!peashooterTexture.loadFromFile("peashooter.png")) {
             // Handle error
