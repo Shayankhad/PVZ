@@ -24,6 +24,7 @@
 #define PEASHOOTER_IMAGE_ADDRESS "files/pics/Peashooter.png" 
 #define PEA_IMAGE_ADDRESS "files/pics/Pea.png"
 #define OPENED_PEASHOOTER_LABEL_ADDRESS "files/pics/Opened Peashooter Label.png"
+#define SUNFLOWER_LABEL_ADDRESS "files/pics/Sunflower_Label.png"
 #define CLOSED_PEASHOOTER_LABEL_ADDRESS "files/pics/Closed Peashooter Label.png"
 #define DOT_IMAGE_ADDRESS "files/pics/Dot.png"
 #define SUN_IAMGE_ADDRESS "files/pics/Sun.png"
