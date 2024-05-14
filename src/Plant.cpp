@@ -32,9 +32,11 @@ void Plant::remove_pea(Pea * pea_pointer){
     }
 }
 
-void Plant::render_plant(RenderWindow &window , Clock *clock){
+void Plant::render_plant(RenderWindow &window , Clock *clock , bool is_side_full){
     window.draw(plant_sprite);
-    make_pea(clock);
+    if(is_side_full){
+        make_pea(clock);
+    }
     for(auto& pea : pea_vec){
         pea->render_pea(window);
     }
@@ -74,4 +76,7 @@ void Plant::pea_hit_zombie(Sprite *zombie_sprite , Zombie *zombie_pointer){
             zombie_pointer->decrease_health(PEA_DAMAGE);
         }
     }
+}
+int Plant::get_plant_y_position(){
+    return plant_sprite.getPosition().y;
 }

@@ -10,11 +10,12 @@ public:
     void make_pea(Clock *clock);
     void remove_pea(Pea * pea_pointer);
 
-    void render_plant(RenderWindow &window , Clock *clock);
+    void render_plant(RenderWindow &window , Clock *clock ,  bool is_side_full);
     void plant_mouse_handle(Event * event , RenderWindow * window);
     bool get_is_dragging();
     Sprite* get_plant_sprite_ptr();
     void pea_hit_zombie(Sprite *zombie_sprite , Zombie *zombie_pointer);
+    int get_plant_y_position();
 private:
     Texture plant_texture;
     Sprite plant_sprite;    

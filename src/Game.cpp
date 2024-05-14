@@ -69,19 +69,45 @@ void Game::check_side(){
     for(auto & zombie : zombies){
         if(zombie->get_zombie_y_position() == 50){
             
-            is_side_full[0] == true;
+            is_side_full[0] = true;
         }
         if(zombie->get_zombie_y_position() == 150){
-            is_side_full[1] == true;
+            is_side_full[1] = true;
         }
         if(zombie->get_zombie_y_position() == 250){
-            is_side_full[2] == true;
+            is_side_full[2] = true;
         }
         if(zombie->get_zombie_y_position() == 350){
-            is_side_full[3] == true;
+            is_side_full[3] = true;
         }
         if(zombie->get_zombie_y_position() == 450){
-            is_side_full[4] == true;
+            is_side_full[4] = true;
+        }
+    }
+}
+
+void Game::render_plant_vec(){
+    //130 225 325 420 520
+    
+    for(auto& plant : plant_vec){
+        if(plant->get_plant_y_position() == 130){
+            
+            plant->render_plant(window , &clock ,is_side_full[0]);
+            
+            
+            //cout <<is_side_full[0];
+        }
+        if(plant->get_plant_y_position() == 225){
+            plant->render_plant(window , &clock ,is_side_full[1]);
+        }
+        if(plant->get_plant_y_position() == 325){
+            plant->render_plant(window , &clock ,is_side_full[2]);
+        }
+        if(plant->get_plant_y_position() == 420){
+            plant->render_plant(window , &clock ,is_side_full[3]);
+        }
+        if(plant->get_plant_y_position() == 520){
+            plant->render_plant(window , &clock ,is_side_full[4]);
         }
     }
 }
@@ -95,7 +121,7 @@ void Game::run(){
             last_time_made_zombie = clock.getElapsedTime();
         }
         check_side();
-        
+
         window.draw(frontyard_sprite);
         plant_label->render_plant_label(window);
         for(auto& zombie : zombies){
@@ -105,9 +131,7 @@ void Game::run(){
             }
         }
         check_dead_zombies();
-        for(auto& plant : plant_vec){
-           plant->render_plant(window , &clock); 
-        }
+        render_plant_vec();
         mouse_press_handeling();
         if(is_dot_board_open){
             for(auto & dot : dot_vec ){

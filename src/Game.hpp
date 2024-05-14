@@ -15,6 +15,7 @@ public:
     void clicked_on_label();
     void make_dot_board();
     void check_side();
+    void render_plant_vec();
     ~Game();
 private:
     vector <Zombie*> zombies;
