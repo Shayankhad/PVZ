@@ -9,8 +9,8 @@ Game::Game(){
     frontyard_sprite.setTexture(frontyard_tex);
     plant_label = new Plant_label();
     make_dot_board();
-    sun_temp = new Sun();
-    sun_vec.emplace_back(sun_temp);
+    make_sun();
+
 }
 
 void Game::mouse_press_handeling(){
@@ -127,15 +127,17 @@ void Game::render_plant_vec(){
         }
     }
 }
-
+void Game::zombie_time_handeling(){
+    if(clock.getElapsedTime().asSeconds() - last_time_made_zombie.asSeconds() >= 3){
+        make_zombie();
+        
+        last_time_made_zombie = clock.getElapsedTime();
+    }
+}
 void Game::run(){
     while(window.isOpen()){
         window.clear(Color::Black);
-        if(clock.getElapsedTime().asSeconds() - last_time_made_zombie.asSeconds() >= 3){
-            make_zombie();
-            
-            last_time_made_zombie = clock.getElapsedTime();
-        }
+        zombie_time_handeling();
         check_side();
 
         window.draw(frontyard_sprite);
@@ -154,6 +156,7 @@ void Game::run(){
                 dot->draw_dot(window);
             }
         }
+        sun_time_handeling();
         for(auto& sun : sun_vec){
             sun->render_sun(&window);
         }
@@ -212,6 +215,17 @@ void Game::make_dot_board(){
     }
 }
 
+void Game::make_sun(){
+    sun_temp = new Sun();
+    sun_vec.emplace_back(sun_temp);
+}
+
+void Game::sun_time_handeling(){
+    if(clock.getElapsedTime().asSeconds() - last_time_made_sun.asSeconds() >= 10){
+        make_sun();
+        last_time_made_sun = clock.getElapsedTime();
+    }
+}
 Game::~Game(){
     delete zombie_temp;
 }

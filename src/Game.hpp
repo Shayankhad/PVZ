@@ -8,6 +8,7 @@ public:
     Game();
     void mouse_press_handeling();
     void make_zombie();
+    void zombie_time_handeling();
     void run();
     Time get_elapsed_time();
     void check_dead_zombies();
@@ -17,6 +18,8 @@ public:
     void check_side();
     void render_plant_vec();
     void sun_mouse_handeling();
+    void make_sun();
+    void sun_time_handeling();
     ~Game();
 private:
     vector <Zombie*> zombies;
@@ -26,6 +29,7 @@ private:
     Sprite frontyard_sprite;
     Clock clock;
     Time last_time_made_zombie;
+    Time last_time_made_sun;
     vector<Plant*> plant_vec;
     Plant_label *plant_label;
     vector<Dot*> dot_vec;
