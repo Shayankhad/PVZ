@@ -25,3 +25,7 @@ void Zombie::decrease_health(int damage){
 int Zombie::get_health(){
     return health;
 }
+
+int Zombie::get_zombie_y_position(){
+    return zombie_sprite.getPosition().x;
+}

@@ -8,6 +8,7 @@ public:
     Sprite* get_zombie_sprite();
     void decrease_health(int damage);
     int get_health();
+    int get_zombie_y_position();
 private:
     Texture zombie_texture;
     Sprite zombie_sprite;

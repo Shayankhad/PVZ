@@ -14,6 +14,7 @@ public:
     void make_plant(Vector2f plant_position);
     void clicked_on_label();
     void make_dot_board();
+    void check_side();
     ~Game();
 private:
     vector <Zombie*> zombies;
@@ -28,6 +29,7 @@ private:
     vector<Dot*> dot_vec;
     Dot * temp_dot;
     bool is_dot_board_open = false;
+    vector <bool> is_side_full;
 };
 
 #endif

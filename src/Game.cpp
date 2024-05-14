@@ -1,5 +1,6 @@
 #include "global.hpp"
 
+//make_pea
 
 
 Game::Game(){
@@ -63,7 +64,26 @@ void Game::make_zombie(){
         zombies.emplace_back(zombie_temp);
     }
 }
-
+void Game::check_side(){
+    is_side_full = {false , false , false , false , false};
+    for(auto & zombie : zombies){
+        if(zombie->get_zombie_y_position() == 50){
+            is_side_full[0] == true;
+        }
+        if(zombie->get_zombie_y_position() == 150){
+            is_side_full[1] == true;
+        }
+        if(zombie->get_zombie_y_position() == 250){
+            is_side_full[2] == true;
+        }
+        if(zombie->get_zombie_y_position() == 350){
+            is_side_full[3] == true;
+        }
+        if(zombie->get_zombie_y_position() == 450){
+            is_side_full[4] == true;
+        }
+    }
+}
 
 void Game::run(){
     while(window.isOpen()){
@@ -103,6 +123,7 @@ Time Game::get_elapsed_time(){
 }
 
 void Game::check_dead_zombies(){
+    
     for (vector<Zombie*>::size_type i = 0; i < zombies.size() ; i++){
         if(zombies[i]->get_health() <=0){
             zombies.erase(zombies.begin() + i);
