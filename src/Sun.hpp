@@ -15,7 +15,7 @@ public:
         sun_sprite.setPosition(300 ,300);
     }
     void render_sun(RenderWindow *window){
-        sun_sprite.move(0 , 0.3);
+        sun_sprite.move(0 , SUN_SPEED);
         window->draw(sun_sprite);
     }
     Sprite* get_sun_sprite(){

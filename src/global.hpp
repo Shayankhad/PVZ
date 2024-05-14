@@ -30,6 +30,7 @@
 #define PEA_DAMAGE 25
 #define ZOMBIE_HEALTH 100
 #define ZOMBIE_SPEED -0.2
+#define SUN_SPEED 0.3
 using namespace std;
 using namespace sf;
 #endif
