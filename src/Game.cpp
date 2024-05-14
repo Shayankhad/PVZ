@@ -92,7 +92,10 @@ void Game::run(){
             make_zombie();
             last_time_made_zombie = clock.getElapsedTime();
         }
-        
+        check_side();
+
+        cout << is_side_full[0] << endl;
+
 
         window.draw(frontyard_sprite);
         plant_label->render_plant_label(window);
