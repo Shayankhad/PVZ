@@ -24,6 +24,7 @@ private:
     vector <Pea*> pea_vec;
     Pea *temp_pea;
     Time last_time_made_pea = seconds(0);
+    int sun_cost = 100;
 };
 
 #endif
