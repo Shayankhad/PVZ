@@ -31,6 +31,7 @@
 #define ZOMBIE_HEALTH 100
 #define ZOMBIE_SPEED -0.2
 #define SUN_SPEED 0.3
+#define PLANT_SHOOTING_SPEED 1
 using namespace std;
 using namespace sf;
 #endif

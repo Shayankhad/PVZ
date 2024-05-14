@@ -14,7 +14,7 @@ Plant::Plant(Vector2f plant_position){
 
 void Plant::make_pea(Clock *clock){
     int elapsed_time = clock->getElapsedTime().asSeconds();
-    if((elapsed_time - last_time_made_pea.asSeconds()) >= 0.5){
+    if((elapsed_time - last_time_made_pea.asSeconds()) >= PLANT_SHOOTING_SPEED ){
         Vector2f plant_pos = plant_sprite.getPosition();
         plant_pos.x += 50;
         plant_pos.y += 10;
