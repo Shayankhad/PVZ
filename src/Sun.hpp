@@ -17,6 +17,9 @@ public:
     void render_sun(RenderWindow *window){
         window->draw(sun_sprite);
     }
+    Sprite* get_sun_sprite(){
+        return &sun_sprite;
+    }
 private:
     Texture sun_texture;
     Sprite sun_sprite;

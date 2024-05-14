@@ -42,6 +42,7 @@ void Plant::render_plant(RenderWindow &window , Clock *clock , bool is_side_full
     }
     
 }
+
 void Plant::plant_mouse_handle(Event * event , RenderWindow * window){
     if(event->type == Event::EventType::MouseButtonPressed){
         if(event->mouseButton.button == Mouse::Left){

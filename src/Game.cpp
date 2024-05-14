@@ -23,6 +23,7 @@ void Game::mouse_press_handeling(){
             plant->plant_mouse_handle(&event , &window);
         }
         clicked_on_label();
+        sun_mouse_handeling();
 
         for(auto & dot : dot_vec){
             if(event.type == Event::EventType::MouseButtonPressed){
@@ -37,9 +38,29 @@ void Game::mouse_press_handeling(){
                 }
             }
         }
+
+        // void Plant::remove_pea(Pea * pea_pointer){
+        //     for(vector<Pea*>::size_type i = 0 ; i < pea_vec.size() ; i++){
+        //         if(pea_vec[i] == pea_pointer){
+        //             pea_vec.erase(pea_vec.begin() + i);
+        //         }
+        //     }
+        // }
+
     }
 }
 
+void Game::sun_mouse_handeling(){
+    if(event.type == Event::EventType::MouseButtonPressed){
+        if(event.mouseButton.button == Mouse::Left){
+            for(vector<Sun*>::size_type i = 0 ; i <sun_vec.size() ; i++){
+                if(sun_vec[i]->get_sun_sprite()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y )){
+                    sun_vec.erase(sun_vec.begin() + i);
+                }
+            }
+        }
+    }
+}
 
 void Game::make_zombie(){
     int random_num = random_number(1 , 5);
