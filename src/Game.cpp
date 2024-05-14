@@ -10,7 +10,6 @@ Game::Game(){
     plant_label = new Plant_label();
     make_dot_board();
     make_sun();
-
 }
 
 void Game::mouse_press_handeling(){
