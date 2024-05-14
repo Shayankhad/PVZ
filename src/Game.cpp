@@ -68,6 +68,7 @@ void Game::check_side(){
     is_side_full = {false , false , false , false , false};
     for(auto & zombie : zombies){
         if(zombie->get_zombie_y_position() == 50){
+            
             is_side_full[0] == true;
         }
         if(zombie->get_zombie_y_position() == 150){
@@ -90,13 +91,11 @@ void Game::run(){
         window.clear(Color::Black);
         if(clock.getElapsedTime().asSeconds() - last_time_made_zombie.asSeconds() >= 3){
             make_zombie();
+            
             last_time_made_zombie = clock.getElapsedTime();
         }
         check_side();
-
-        cout << is_side_full[0] << endl;
-
-
+        
         window.draw(frontyard_sprite);
         plant_label->render_plant_label(window);
         for(auto& zombie : zombies){
