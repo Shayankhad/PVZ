@@ -29,6 +29,7 @@
 #define SUN_IAMGE_ADDRESS "files/pics/Sun.png"
 #define PEA_DAMAGE 25
 #define ZOMBIE_HEALTH 100
+#define ZOMBIE_SPEED -0.2
 using namespace std;
 using namespace sf;
 #endif

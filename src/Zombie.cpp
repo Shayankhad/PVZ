@@ -12,7 +12,7 @@ Zombie::Zombie(Vector2f start_pos){
 
 void Zombie::render_zombie(RenderWindow &window){
     window.draw(zombie_sprite);
-    zombie_sprite.move(-0.4 , 0);
+    zombie_sprite.move(ZOMBIE_SPEED , 0);
 }
 
 Sprite* Zombie::get_zombie_sprite(){
