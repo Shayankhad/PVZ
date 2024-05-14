@@ -130,7 +130,7 @@ void Game::run(){
         window.clear(Color::Black);
         zombie_time_handeling();
         check_side();
-
+        
         window.draw(frontyard_sprite);
         plant_label->render_plant_label(window);
         for(auto& zombie : zombies){
@@ -151,7 +151,7 @@ void Game::run(){
         for(auto& sun : sun_vec){
             sun->render_sun(&window);
         }
-        
+
         window.display();
     }
 }
@@ -218,12 +218,6 @@ void Game::sun_time_handeling(){
     }
 }
 
-void Game::set_text(){
-    Text text;
-    Font font;
-    font.loadFromFile("files/Font/MontserratAlternates-Black.otf");
-    text.setFont(font);
-}
 Game::~Game(){
     delete zombie_temp;
 }

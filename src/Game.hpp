@@ -40,6 +40,7 @@ private:
     vector<Sun*> sun_vec;
     Sun *sun_temp;
     int collected_sun = 50;
+    Text text;
 };
 
 #endif
