@@ -11,7 +11,6 @@ public:
     void remove_pea(Pea * pea_pointer);
 
     void render_plant(RenderWindow &window , Clock *clock ,  bool is_side_full);
-    bool get_is_dragging();
     Sprite* get_plant_sprite_ptr();
     void pea_hit_zombie(Sprite *zombie_sprite , Zombie *zombie_pointer);
     int get_plant_y_position();

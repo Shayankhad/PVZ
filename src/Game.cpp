@@ -54,23 +54,23 @@ void Game::sun_mouse_handeling(){
 void Game::make_zombie(){
     int random_num = random_number(1 , 5);
     if(random_num == 1){
-        zombie_temp = new Zombie({900 , 50});
+        zombie_temp = new Zombie({950 , 50});
         zombies.emplace_back(zombie_temp);
     }
     if(random_num == 2){
-        zombie_temp = new Zombie({900 , 150});
+        zombie_temp = new Zombie({950 , 150});
         zombies.emplace_back(zombie_temp);
     }
     if(random_num == 3){
-        zombie_temp = new Zombie({900 , 250});
+        zombie_temp = new Zombie({950 , 250});
         zombies.emplace_back(zombie_temp);
     }
     if(random_num == 4){
-        zombie_temp = new Zombie({900 , 350});
+        zombie_temp = new Zombie({950 , 350});
         zombies.emplace_back(zombie_temp);
     }
     if(random_num == 5){
-        zombie_temp = new Zombie({900 , 450});
+        zombie_temp = new Zombie({950 , 450});
         zombies.emplace_back(zombie_temp);
     }
 }
@@ -117,7 +117,7 @@ void Game::render_plant_vec(){
     }
 }
 void Game::zombie_time_handeling(){
-    if(clock.getElapsedTime().asSeconds() - last_time_made_zombie.asSeconds() >= 3){
+    if(clock.getElapsedTime().asSeconds() - last_time_made_zombie.asSeconds() >= MAKE_ZOMBIE_EACH_SECOND){
         make_zombie();
         
         last_time_made_zombie = clock.getElapsedTime();
@@ -211,7 +211,7 @@ void Game::make_sun(){
 }
 
 void Game::sun_time_handeling(){
-    if(clock.getElapsedTime().asSeconds() - last_time_made_sun.asSeconds() >= 10){
+    if(clock.getElapsedTime().asSeconds() - last_time_made_sun.asSeconds() >= GIVE_SUN_CAPACITY){
         make_sun();
         last_time_made_sun = clock.getElapsedTime();
     }

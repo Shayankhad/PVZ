@@ -31,9 +31,12 @@
 #define PEA_DAMAGE 25
 #define ZOMBIE_HEALTH 100
 #define ZOMBIE_SPEED -0.2
+#define MAKE_ZOMBIE_EACH_SECOND 5
 #define SUN_SPEED 0.3
 #define PLANT_SHOOTING_SPEED 1
 #define PLANT_SUN_COST  100
+#define GIVE_SUN_CAPACITY 5
+#define PEA_SPEED 4
 using namespace std;
 using namespace sf;
 #endif

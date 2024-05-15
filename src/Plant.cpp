@@ -43,9 +43,6 @@ void Plant::render_plant(RenderWindow &window , Clock *clock , bool is_side_full
     
 }
 
-bool Plant::get_is_dragging(){
-    return is_dragging;
-}
 Sprite* Plant::get_plant_sprite_ptr(){
     return &plant_sprite;
 }
