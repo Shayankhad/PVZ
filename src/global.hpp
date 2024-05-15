@@ -29,15 +29,17 @@
 #define DOT_IMAGE_ADDRESS "files/pics/Dot.png"
 #define SUN_IAMGE_ADDRESS "files/pics/Sun.png"
 #define ZOMBIES_ATE_YOUR_BRAINS_IMAGE_ADDRESS "files/pics/THE ZOMBIES ATE YOUR BRAINS!.png"
+#define YOU_WIN_IMAGE_ADDRESS "files/pics/you win.png"
 #define PEA_DAMAGE 25
 #define ZOMBIE_HEALTH 100
-#define ZOMBIE_SPEED -2
+#define ZOMBIE_SPEED -0.2
 #define MAKE_ZOMBIE_EACH_SECOND 5
 #define SUN_SPEED 0.3
 #define PLANT_SHOOTING_SPEED 1
 #define PLANT_SUN_COST  100
 #define GIVE_SUN_CAPACITY 5
 #define PEA_SPEED 4
+#define WIN_TIME_TIME 300
 using namespace std;
 using namespace sf;
 #endif

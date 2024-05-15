@@ -46,6 +46,8 @@ private:
     Sprite game_over_sprite;
     bool is_game_over = false;
     bool is_won = false;
+    Texture you_win_texture;
+    Sprite you_win_sprite;
 };
 
 #endif

@@ -2,17 +2,35 @@
 
 
 Game::Game(){
+    
+    
+    
     window.create(VideoMode(X_WINDOW , Y_WINDOW) , WINDOWS_TITLE);
     if(!frontyard_tex.loadFromFile(BACKGROUND_IMAGE_ADDRESS)){
         cerr << "fialed to open frontyard image!!!";
     }
+    frontyard_sprite.setTexture(frontyard_tex);
+    
+    
+    
     if(!game_over_texture.loadFromFile(ZOMBIES_ATE_YOUR_BRAINS_IMAGE_ADDRESS)){
         cerr << "fialed to open game_over image!!!";
     }
-    frontyard_sprite.setTexture(frontyard_tex);
     game_over_sprite.setTexture(game_over_texture);
     game_over_sprite.setOrigin(game_over_sprite.getLocalBounds().width / 2 , game_over_sprite.getLocalBounds().height / 2);
     game_over_sprite.setPosition(X_WINDOW/2 , Y_WINDOW/2);
+    
+    
+    
+    if(!you_win_texture.loadFromFile(YOU_WIN_IMAGE_ADDRESS)){
+        cerr << "fialed to open you_win image!!!";
+    }
+    you_win_sprite.setTexture(you_win_texture);
+    you_win_sprite.setOrigin(you_win_sprite.getLocalBounds().width / 2 , you_win_sprite.getLocalBounds().height / 2);
+    you_win_sprite.setPosition(X_WINDOW/2 , Y_WINDOW/2);
+
+
+
     plant_label = new Plant_label();
     make_dot_board();
     make_sun();
@@ -155,7 +173,7 @@ void Game::run(){
         for(auto& sun : sun_vec){
             sun->render_sun(&window);
         }
-        cout << collected_sun << endl;
+        //cout << collected_sun << endl;
         check_game_over();
         check_won();
         window.display();
@@ -179,7 +197,7 @@ void Game::run(){
             }
         }
         window.clear();
-        window.draw(game_over_sprite);
+        window.draw(you_win_sprite);
         window.display();
     }
 
@@ -257,7 +275,7 @@ void Game::check_game_over(){
 }
 
 void Game::check_won(){
-    if(clock.getElapsedTime().asSeconds() >= 100){
+    if(clock.getElapsedTime().asSeconds() >= WIN_TIME_TIME){
         is_won = true;
     }
 }
