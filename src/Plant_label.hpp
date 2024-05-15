@@ -31,11 +31,11 @@ public:
         }
     }
 
-    void render_plant_label(RenderWindow &window , Time *last_time_made_plant , Clock *clock){
-        if(clock->getElapsedTime().asSeconds() - last_time_made_plant->asSeconds() >= 5){
+    void render_plant_label(RenderWindow &window , Time *last_time_made_plant , Clock *clock , int collected_sun ){
+        if((clock->getElapsedTime().asSeconds() - last_time_made_plant->asSeconds() >= 5)&& (collected_sun >= PLANT_SUN_COST )){
             set_sprite_label(true);
-        }
-        else if(clock->getElapsedTime().asSeconds() - last_time_made_plant->asSeconds() < 5){
+        }   
+        else {
             set_sprite_label(false);
         }
         window.draw(plant_label_sprite);

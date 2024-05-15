@@ -130,7 +130,7 @@ void Game::run(){
         check_side();
         
         window.draw(frontyard_sprite);
-        plant_label->render_plant_label(window , &last_time_made_plant , &clock );
+        plant_label->render_plant_label(window , &last_time_made_plant , &clock , collected_sun);
         for(auto& zombie : zombies){
             zombie->render_zombie(window);
             for(auto& plant : plant_vec){
@@ -149,7 +149,7 @@ void Game::run(){
         for(auto& sun : sun_vec){
             sun->render_sun(&window);
         }
-        //cout << collected_sun << endl;
+        cout << collected_sun << endl;
         window.display();
     }
 }
@@ -172,6 +172,7 @@ void Game::check_dead_zombies(){
 void Game::make_plant(Vector2f plant_position){
     Plant * plant_ptr = new Plant(plant_position);
     plant_vec.emplace_back(plant_ptr);
+    collected_sun -= PLANT_SUN_COST;
 }
 
 void Game::clicked_on_label(){
