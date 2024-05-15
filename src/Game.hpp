@@ -20,7 +20,6 @@ public:
     void sun_mouse_handeling();
     void make_sun();
     void sun_time_handeling();
-    void set_text();
     ~Game();
 private:
     vector <Zombie*> zombies;
@@ -40,7 +39,6 @@ private:
     vector<Sun*> sun_vec;
     Sun *sun_temp;
     int collected_sun = 50;
-    Text text;
 };
 
 #endif
