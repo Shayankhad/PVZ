@@ -29,3 +29,7 @@ int Zombie::get_health(){
 int Zombie::get_zombie_y_position(){
     return zombie_sprite.getPosition().y;
 }
+
+int Zombie::get_zombie_x_position(){
+    return zombie_sprite.getPosition().x;
+}

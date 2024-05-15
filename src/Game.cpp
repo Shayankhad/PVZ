@@ -6,7 +6,13 @@ Game::Game(){
     if(!frontyard_tex.loadFromFile(BACKGROUND_IMAGE_ADDRESS)){
         cerr << "fialed to open frontyard image!!!";
     }
+    if(!game_over_texture.loadFromFile(ZOMBIES_ATE_YOUR_BRAINS_IMAGE_ADDRESS)){
+        cerr << "fialed to open game_over image!!!";
+    }
     frontyard_sprite.setTexture(frontyard_tex);
+    game_over_sprite.setTexture(game_over_texture);
+    game_over_sprite.setOrigin(game_over_sprite.getLocalBounds().width / 2 , game_over_sprite.getLocalBounds().height / 2);
+    game_over_sprite.setPosition(X_WINDOW/2 , Y_WINDOW/2);
     plant_label = new Plant_label();
     make_dot_board();
     make_sun();
@@ -124,7 +130,7 @@ void Game::zombie_time_handeling(){
     }
 }
 void Game::run(){
-    while(window.isOpen()){
+    while((window.isOpen()) && (!is_game_over)){
         window.clear(Color::Black);
         zombie_time_handeling();
         check_side();
@@ -150,8 +156,21 @@ void Game::run(){
             sun->render_sun(&window);
         }
         cout << collected_sun << endl;
+        check_game_over();
         window.display();
     }
+
+    while(window.isOpen()){
+        while(window.pollEvent(event)){
+            if(event.type == Event::EventType::Closed){
+                window.close();
+            }
+        }
+        window.clear();
+        window.draw(game_over_sprite);
+        window.display();
+    }
+
 }
 
 Time Game::get_elapsed_time(){
@@ -217,6 +236,13 @@ void Game::sun_time_handeling(){
     }
 }
 
+void Game::check_game_over(){
+    for(auto& zombie : zombies){
+        if(zombie->get_zombie_x_position() <= 230 ){
+            is_game_over = true;
+        }
+    }
+}
 Game::~Game(){
     delete zombie_temp;
 }

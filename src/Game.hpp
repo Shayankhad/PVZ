@@ -20,6 +20,7 @@ public:
     void sun_mouse_handeling();
     void make_sun();
     void sun_time_handeling();
+    void check_game_over();
     ~Game();
 private:
     vector <Zombie*> zombies;
@@ -40,6 +41,9 @@ private:
     vector<Sun*> sun_vec;
     Sun *sun_temp;
     int collected_sun = 50;
+    Texture game_over_texture;
+    Sprite game_over_sprite;
+    bool is_game_over = false;
 };
 
 #endif
