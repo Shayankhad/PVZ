@@ -43,27 +43,6 @@ void Plant::render_plant(RenderWindow &window , Clock *clock , bool is_side_full
     
 }
 
-void Plant::plant_mouse_handle(Event * event , RenderWindow * window){
-    if(event->type == Event::EventType::MouseButtonPressed){
-        if(event->mouseButton.button == Mouse::Left){
-            if(plant_sprite.getGlobalBounds().contains(event->mouseButton.x , event->mouseButton.y )){
-                is_dragging = true;
-                offset = plant_sprite.getPosition() - Vector2f(event->mouseButton.x , event->mouseButton.y);
-            }
-        }
-    }
-    else if(event->type == Event::EventType::MouseButtonReleased){
-        if(event->mouseButton.button == Mouse::Left){
-            is_dragging = 0;
-        }
-    }
-
-    if(is_dragging){
-        Vector2i mouse_pos = Mouse::getPosition(*window);
-        plant_sprite.setPosition(mouse_pos.x + offset.x , mouse_pos.y + offset.y);
-    }
-}   
-
 bool Plant::get_is_dragging(){
     return is_dragging;
 }

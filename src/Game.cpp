@@ -18,19 +18,14 @@ void Game::mouse_press_handeling(){
         if(event.type == Event::EventType::Closed){
             window.close();
         }
-        for(auto& plant : plant_vec){
-            plant->plant_mouse_handle(&event , &window);
-        }
         clicked_on_label();
         sun_mouse_handeling();
 
         for(auto & dot : dot_vec){
             if(event.type == Event::EventType::MouseButtonPressed){
                 if(event.mouseButton.button == Mouse::Left){
-                    if(dot->dot_get_sprite()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y )){
+                    if((dot->dot_get_sprite()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y ))&& (is_dot_board_open == true)){
                         is_dot_board_open = false;
-                        //Vector2i mouse_position = Mouse::getPosition(window);
-                        //Vector2f mouse_position_float(static_cast<float>(mouse_position.x) ,static_cast<float>(mouse_position.y) );
                         make_plant(dot->get_dot_position());
                         dot->set_is_dot_full(true);
                     }
@@ -151,7 +146,7 @@ void Game::run(){
         for(auto& sun : sun_vec){
             sun->render_sun(&window);
         }
-
+        //cout << collected_sun << endl;
         window.display();
     }
 }
