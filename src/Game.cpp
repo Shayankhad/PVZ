@@ -10,6 +10,7 @@ Game::Game(){
     plant_label = new Plant_label();
     make_dot_board();
     make_sun();
+    last_time_made_plant = seconds(0);
 }
 
 void Game::mouse_press_handeling(){
@@ -24,9 +25,11 @@ void Game::mouse_press_handeling(){
         for(auto & dot : dot_vec){
             if(event.type == Event::EventType::MouseButtonPressed){
                 if(event.mouseButton.button == Mouse::Left){
-                    if((dot->dot_get_sprite()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y ))&& (is_dot_board_open == true)){
+                    if((dot->dot_get_sprite()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y ))
+                    && (is_dot_board_open == true) && ((clock.getElapsedTime().asSeconds()  - last_time_made_plant.asSeconds() >= 5))){
                         is_dot_board_open = false;
                         make_plant(dot->get_dot_position());
+                        last_time_made_plant = clock.getElapsedTime();
                         dot->set_is_dot_full(true);
                     }
                 }
@@ -127,7 +130,7 @@ void Game::run(){
         check_side();
         
         window.draw(frontyard_sprite);
-        plant_label->render_plant_label(window);
+        plant_label->render_plant_label(window , &last_time_made_plant , &clock );
         for(auto& zombie : zombies){
             zombie->render_zombie(window);
             for(auto& plant : plant_vec){

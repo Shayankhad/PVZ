@@ -30,6 +30,7 @@ private:
     Clock clock;
     Time last_time_made_zombie;
     Time last_time_made_sun;
+    Time last_time_made_plant;
     vector<Plant*> plant_vec;
     Plant_label *plant_label;
     vector<Dot*> dot_vec;
