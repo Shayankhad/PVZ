@@ -130,7 +130,7 @@ void Game::zombie_time_handeling(){
     }
 }
 void Game::run(){
-    while((window.isOpen()) && (!is_game_over)){
+    while((window.isOpen()) && (!is_game_over) && (!is_won)){
         window.clear(Color::Black);
         zombie_time_handeling();
         check_side();
@@ -157,10 +157,22 @@ void Game::run(){
         }
         cout << collected_sun << endl;
         check_game_over();
+        check_won();
         window.display();
     }
 
-    while(window.isOpen()){
+    while((window.isOpen()) && (is_game_over)){
+        while(window.pollEvent(event)){
+            if(event.type == Event::EventType::Closed){
+                window.close();
+            }
+        }
+        window.clear();
+        window.draw(game_over_sprite);
+        window.display();
+    }
+    
+    while((window.isOpen()) && (is_won)){
         while(window.pollEvent(event)){
             if(event.type == Event::EventType::Closed){
                 window.close();
@@ -243,6 +255,14 @@ void Game::check_game_over(){
         }
     }
 }
+
+void Game::check_won(){
+    if(clock.getElapsedTime().asSeconds() >= 100){
+        is_won = true;
+    }
+}
+
+
 Game::~Game(){
     delete zombie_temp;
 }

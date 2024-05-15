@@ -21,6 +21,7 @@ public:
     void make_sun();
     void sun_time_handeling();
     void check_game_over();
+    void check_won();
     ~Game();
 private:
     vector <Zombie*> zombies;
@@ -44,6 +45,7 @@ private:
     Texture game_over_texture;
     Sprite game_over_sprite;
     bool is_game_over = false;
+    bool is_won = false;
 };
 
 #endif
