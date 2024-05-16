@@ -37,6 +37,7 @@ Game::Game(){
     start_screen_sprite.setPosition(X_WINDOW/2 , Y_WINDOW/2);
 
     plant_label = new Plant_label();
+    sunflower_label = new Sunflower_label();
     make_dot_board();
     make_sun();
     last_time_made_plant = seconds(0);
@@ -55,7 +56,7 @@ void Game::mouse_press_handeling(){
             if(event.type == Event::EventType::MouseButtonPressed){
                 if(event.mouseButton.button == Mouse::Left){
                     if((dot->dot_get_sprite()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y ))
-                    && (is_dot_board_open == true) && ((clock.getElapsedTime().asSeconds()  - last_time_made_plant.asSeconds() >= 5))
+                    && (is_dot_board_open == true) && ((clock.getElapsedTime().asSeconds()  - last_time_made_plant.asSeconds() >= AFETER_SECOND_PLANT_AVAILABLE))
                     && (collected_sun >= PLANT_SUN_COST)){
                         is_dot_board_open = false;
                         make_plant(dot->get_dot_position());
@@ -176,6 +177,7 @@ void Game::run(){
         check_side();
         window.draw(frontyard_sprite);
         plant_label->render_plant_label(window , &last_time_made_plant , &clock , collected_sun);
+        sunflower_label->render_sunflower_label(window);
         for(auto& zombie : zombies){
             zombie->render_zombie(window);
             for(auto& plant : plant_vec){
@@ -305,6 +307,12 @@ void Game::check_won(){
 
 Game::~Game(){
     delete zombie_temp;
+    plant_vec.clear();
+    delete plant_label;
+    dot_vec.clear();
+    delete temp_dot;
+    sun_vec.clear();
+    delete sun_temp;
 }
 
 

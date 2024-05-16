@@ -10,7 +10,7 @@ public:
             cerr << "Failed to load sunflower label image";
         }
         sunflower_label_sprite.setTexture(sunflower_label_texture);
-        sunflower_label_sprite.setPosition({0, 0});
+        sunflower_label_sprite.setPosition({0, 100});
         sunflower_label_sprite.setScale(0.5, 0.5);
     }
 

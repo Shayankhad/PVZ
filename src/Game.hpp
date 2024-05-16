@@ -23,6 +23,7 @@ public:
     void check_game_over();
     void check_won();
     ~Game();
+
 private:
     vector <Zombie*> zombies;
     Zombie *zombie_temp;
@@ -51,6 +52,7 @@ private:
     Texture start_screen_texture;
     Sprite start_screen_sprite;
     bool is_clicked_on_first_screen = false;
+    Sunflower_label *sunflower_label;
 };
 
 #endif

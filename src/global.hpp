@@ -16,6 +16,7 @@
 #include "Plant_label.hpp"
 #include "Dot.hpp"
 #include "Sun.hpp"
+#include "Sunflower_label.hpp"
 #define X_WINDOW 1400
 #define Y_WINDOW 600
 #define WINDOWS_TITLE "PVZ"
@@ -41,6 +42,7 @@
 #define GIVE_SUN_CAPACITY 5
 #define PEA_SPEED 4
 #define WIN_TIME_TIME 300
+#define AFETER_SECOND_PLANT_AVAILABLE 5
 using namespace std;
 using namespace sf;
 #endif
