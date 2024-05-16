@@ -55,7 +55,8 @@ void Game::mouse_press_handeling(){
             if(event.type == Event::EventType::MouseButtonPressed){
                 if(event.mouseButton.button == Mouse::Left){
                     if((dot->dot_get_sprite()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y ))
-                    && (is_dot_board_open == true) && ((clock.getElapsedTime().asSeconds()  - last_time_made_plant.asSeconds() >= 5))){
+                    && (is_dot_board_open == true) && ((clock.getElapsedTime().asSeconds()  - last_time_made_plant.asSeconds() >= 5))
+                    && (collected_sun >= PLANT_SUN_COST)){
                         is_dot_board_open = false;
                         make_plant(dot->get_dot_position());
                         last_time_made_plant = clock.getElapsedTime();
@@ -193,7 +194,7 @@ void Game::run(){
         for(auto& sun : sun_vec){
             sun->render_sun(&window);
         }
-        //cout << collected_sun << endl;
+        cout << collected_sun << endl;
         check_game_over();
         check_won();
         
