@@ -14,6 +14,10 @@ public:
         sunflower_sprite.setPosition(sunflower_position);
     }
 
+    Sprite get_sprite(){
+        return sunflower_sprite;
+    }
+
 private:
     Texture sunflower_texture;
     Sprite sunflower_sprite;    
