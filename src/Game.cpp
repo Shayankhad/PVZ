@@ -314,5 +314,3 @@ void Game::check_won(){
 
 Game::~Game(){
 }
-
-
