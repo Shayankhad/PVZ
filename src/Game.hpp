@@ -63,6 +63,7 @@ private:
     Sunflower_label *sunflower_label;
     Text *text;
     Font *font;
+    Music music;
 };
 
 #endif

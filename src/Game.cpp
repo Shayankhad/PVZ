@@ -7,8 +7,8 @@ Game::Game(){
     make_dot_board();
     make_sun();
     last_time_made_plant = seconds(0);
-    
 }
+
 void Game::load_from_files(){
     window.create(VideoMode(X_WINDOW , Y_WINDOW) , WINDOWS_TITLE);
     if(!frontyard_tex.loadFromFile(BACKGROUND_IMAGE_ADDRESS)){
@@ -34,6 +34,10 @@ void Game::load_from_files(){
     start_screen_sprite.setTexture(start_screen_texture);
     start_screen_sprite.setOrigin(start_screen_sprite.getLocalBounds().width / 2 , start_screen_sprite.getLocalBounds().height / 2);
     start_screen_sprite.setPosition(X_WINDOW/2 , Y_WINDOW/2);
+
+    if(!music.openFromFile(SONG_ADDRESS)){
+        cerr << "fialed to open song!!!";
+    }
 }
 
 void Game::mouse_press_handeling(){
@@ -235,6 +239,7 @@ void Game::run_you_win(){
 }
 
 void Game::run(){
+    music.play();
     run_start_menu();
     run_core_game();
     run_game_over();

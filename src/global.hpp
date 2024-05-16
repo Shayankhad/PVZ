@@ -3,6 +3,7 @@
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include <SFML/Audio.hpp>
 #include <string>
 #include <iostream>
 #include <random>
@@ -36,6 +37,7 @@
 #define START_SCREEN_IMAGE_ADDRESS "files/pics/start_screen.png"
 #define SUN_FLOWER_IMAGE_ADDRESS "files/pics/dsunflower.png"
 #define FONT_ADDRESS "files/Font/arial.ttf"
+#define SONG_ADDRESS "files/audio/song.ogg"
 #define PEA_DAMAGE 25
 #define ZOMBIE_HEALTH 100
 #define ZOMBIE_SPEED -0.2
