@@ -2,26 +2,25 @@
 
 
 Game::Game(){
-    
-    
-    
+    load_from_files();
+    plant_label = new Plant_label();
+    sunflower_label = new Sunflower_label();
+    make_dot_board();
+    make_sun();
+    last_time_made_plant = seconds(0);
+}
+void Game::load_from_files(){
     window.create(VideoMode(X_WINDOW , Y_WINDOW) , WINDOWS_TITLE);
     if(!frontyard_tex.loadFromFile(BACKGROUND_IMAGE_ADDRESS)){
         cerr << "fialed to open frontyard image!!!";
     }
     frontyard_sprite.setTexture(frontyard_tex);
-    
-    
-    
     if(!game_over_texture.loadFromFile(ZOMBIES_ATE_YOUR_BRAINS_IMAGE_ADDRESS)){
         cerr << "fialed to open game_over image!!!";
     }
     game_over_sprite.setTexture(game_over_texture);
     game_over_sprite.setOrigin(game_over_sprite.getLocalBounds().width / 2 , game_over_sprite.getLocalBounds().height / 2);
     game_over_sprite.setPosition(X_WINDOW/2 , Y_WINDOW/2);
-    
-    
-    
     if(!you_win_texture.loadFromFile(YOU_WIN_IMAGE_ADDRESS)){
         cerr << "fialed to open you_win image!!!";
     }
@@ -35,41 +34,31 @@ Game::Game(){
     start_screen_sprite.setTexture(start_screen_texture);
     start_screen_sprite.setOrigin(start_screen_sprite.getLocalBounds().width / 2 , start_screen_sprite.getLocalBounds().height / 2);
     start_screen_sprite.setPosition(X_WINDOW/2 , Y_WINDOW/2);
-
-    plant_label = new Plant_label();
-    sunflower_label = new Sunflower_label();
-    make_dot_board();
-    make_sun();
-    make_sunflower({300 ,300});
-    last_time_made_plant = seconds(0);
 }
 
 void Game::mouse_press_handeling(){
     while(window.pollEvent(event)){
-        
-        if(event.type == Event::EventType::Closed){
-            window.close();
-        }
         clicked_on_label();
         sun_mouse_handeling();
-
-        for(auto & dot : dot_vec){
-            if(event.type == Event::EventType::MouseButtonPressed){
-                if(event.mouseButton.button == Mouse::Left){
-                    if((dot->dot_get_sprite()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y ))
-                    && (is_dot_board_open == true) && ((clock.getElapsedTime().asSeconds()  - last_time_made_plant.asSeconds() >= AFETER_SECOND_PLANT_AVAILABLE))
-                    && (collected_sun >= PLANT_SUN_COST)){
-                        is_dot_board_open = false;
-                        make_plant(dot->get_dot_position());
-                        last_time_made_plant = clock.getElapsedTime();
-                        dot->set_is_dot_full(true);
-                    }
+        dot_mouse_handeling();
+    }
+}
+void Game::dot_mouse_handeling(){
+    for(auto & dot : dot_vec){
+        if(event.type == Event::EventType::MouseButtonPressed){
+            if(event.mouseButton.button == Mouse::Left){
+                if((dot->dot_get_sprite()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y ))
+                && (is_dot_board_open == true) && ((clock.getElapsedTime().asSeconds()  - last_time_made_plant.asSeconds() >= AFETER_SECOND_PLANT_AVAILABLE))
+                && (collected_sun >= PLANT_SUN_COST)){
+                    is_dot_board_open = false;
+                    make_plant(dot->get_dot_position());
+                    last_time_made_plant = clock.getElapsedTime();
+                    dot->set_is_dot_full(true);
                 }
             }
         }
     }
 }
-
 void Game::sun_mouse_handeling(){
     if(event.type == Event::EventType::MouseButtonPressed){
         if(event.mouseButton.button == Mouse::Left){
@@ -78,6 +67,16 @@ void Game::sun_mouse_handeling(){
                     sun_vec.erase(sun_vec.begin() + i);
                     collected_sun += 25;
                 }
+            }
+        }
+    }
+}
+
+void Game::clicked_on_label(){
+    if(event.type == Event::EventType::MouseButtonPressed ){
+        if(event.mouseButton.button == Mouse::Left){
+            if(plant_label->get_plant_label()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y )){
+                is_dot_board_open = true;
             }
         }
     }
@@ -107,10 +106,9 @@ void Game::make_zombie(){
     }
 }
 void Game::check_side(){
-    is_side_full = {false , false , false , false , false};
+    is_side_full = {false , false , false , false , false };
     for(auto & zombie : zombies){
         if(zombie->get_zombie_y_position() == 50){
-            
             is_side_full[0] = true;
         }
         if(zombie->get_zombie_y_position() == 150){
@@ -173,6 +171,9 @@ void Game::run(){
 
     }
     while((window.isOpen()) && (!is_game_over) && (!is_won)){
+        if(event.type == Event::EventType::Closed){
+            window.close();
+        }
         window.clear(Color::Black);
         zombie_time_handeling();
         check_side();
@@ -197,7 +198,6 @@ void Game::run(){
         for(auto& sun : sun_vec){
             sun->render_sun(&window);
         }
-        window.draw(sunflower_vector[0]->get_sprite());
         //cout << collected_sun << endl;
         check_game_over();
         check_won();
@@ -250,15 +250,7 @@ void Game::make_plant(Vector2f plant_position){
     collected_sun -= PLANT_SUN_COST;
 }
 
-void Game::clicked_on_label(){
-    if(event.type == Event::EventType::MouseButtonPressed ){
-        if(event.mouseButton.button == Mouse::Left){
-            if(plant_label->get_plant_label()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y )){
-                is_dot_board_open = true;
-            }
-        }
-    }
-}
+
 void Game::make_dot_board(){
 
     vector <Vector2f> dot_positions = {{295 , 130} , {374 , 130}
@@ -307,13 +299,8 @@ void Game::check_won(){
     }
 }
 
-void Game::make_sunflower(Vector2f sunflower_position){
-    sunflower_temp = new Sunflower(sunflower_position);
-    sunflower_vector.emplace_back(sunflower_temp);
-}
-
-
 Game::~Game(){
+    zombies.clear();
     delete zombie_temp;
     plant_vec.clear();
     delete plant_label;
@@ -321,6 +308,7 @@ Game::~Game(){
     delete temp_dot;
     sun_vec.clear();
     delete sun_temp;
+    delete sunflower_label;
 }
 
 

@@ -6,7 +6,9 @@ class Game{
 public:
     RenderWindow window;
     Game();
+    void load_from_files();
     void mouse_press_handeling();
+    void dot_mouse_handeling();
     void make_zombie();
     void zombie_time_handeling();
     void run();
@@ -22,7 +24,6 @@ public:
     void sun_time_handeling();
     void check_game_over();
     void check_won();
-    void make_sunflower(Vector2f sunflower_position);
     ~Game();
 
 private:
@@ -54,8 +55,6 @@ private:
     Sprite start_screen_sprite;
     bool is_clicked_on_first_screen = false;
     Sunflower_label *sunflower_label;
-    vector <Sunflower*> sunflower_vector; 
-    Sunflower *sunflower_temp;
 };
 
 #endif
