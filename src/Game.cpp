@@ -7,6 +7,7 @@ Game::Game(){
     make_dot_board();
     make_sun();
     last_time_made_plant = seconds(0);
+    
 }
 void Game::load_from_files(){
     window.create(VideoMode(X_WINDOW , Y_WINDOW) , WINDOWS_TITLE);
@@ -199,6 +200,8 @@ void Game::run_core_game(){
         for(auto& sun : sun_vec){
             sun->render_sun(&window);
         }
+        // set_text();
+        // window.draw(*text);
         //cout << collected_sun << endl;
         check_game_over();
         check_won();
@@ -309,6 +312,18 @@ void Game::check_won(){
         
     }
 }
-
+void Game::set_text(){
+    Font font;
+    if (!font.loadFromFile(FONT_ADDRESS)) {
+        cerr << "fail to load font!!!";
+    }
+    text->setFont(font);
+    stringstream ss;
+    ss << collected_sun;
+    string scollected_sun_str = ss.str();
+    text->setString(scollected_sun_str);
+    text->setCharacterSize(24);
+    text->setPosition(700, 300);
+}
 Game::~Game(){
 }
