@@ -29,6 +29,7 @@ public:
     void check_game_over();
     void check_won();
     void set_text();
+    void render_text();
     ~Game();
 
 private:
@@ -61,6 +62,7 @@ private:
     bool is_clicked_on_first_screen = false;
     Sunflower_label *sunflower_label;
     Text *text;
+    Font *font;
 };
 
 #endif

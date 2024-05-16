@@ -200,8 +200,6 @@ void Game::run_core_game(){
         for(auto& sun : sun_vec){
             sun->render_sun(&window);
         }
-        // set_text();
-        // window.draw(*text);
         //cout << collected_sun << endl;
         check_game_over();
         check_won();
@@ -313,17 +311,19 @@ void Game::check_won(){
     }
 }
 void Game::set_text(){
-    Font font;
-    if (!font.loadFromFile(FONT_ADDRESS)) {
+    if (!font->loadFromFile(FONT_ADDRESS)) {
         cerr << "fail to load font!!!";
     }
-    text->setFont(font);
-    stringstream ss;
-    ss << collected_sun;
-    string scollected_sun_str = ss.str();
-    text->setString(scollected_sun_str);
+    text->setFont(*font);
     text->setCharacterSize(24);
     text->setPosition(700, 300);
+}
+void Game::render_text(){
+    stringstream ss;
+    ss << collected_sun;
+    string str = ss.str();
+    string *collected_sun_str = &str;
+    text->setString(*collected_sun_str);
 }
 Game::~Game(){
 }
