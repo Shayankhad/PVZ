@@ -40,7 +40,7 @@ Game::Game(){
     sunflower_label = new Sunflower_label();
     make_dot_board();
     make_sun();
-    //make_sunflower({300 ,300});
+    make_sunflower({300 ,300});
     last_time_made_plant = seconds(0);
 }
 
@@ -197,8 +197,8 @@ void Game::run(){
         for(auto& sun : sun_vec){
             sun->render_sun(&window);
         }
-        //window.draw(sunflower_vector[0]->get_sprite());
-        cout << collected_sun << endl;
+        window.draw(sunflower_vector[0]->get_sprite());
+        //cout << collected_sun << endl;
         check_game_over();
         check_won();
         
