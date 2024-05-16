@@ -29,7 +29,12 @@ Game::Game(){
     you_win_sprite.setOrigin(you_win_sprite.getLocalBounds().width / 2 , you_win_sprite.getLocalBounds().height / 2);
     you_win_sprite.setPosition(X_WINDOW/2 , Y_WINDOW/2);
 
-
+    if(!start_screen_texture.loadFromFile(START_SCREEN_IMAGE_ADDRESS)){
+        cerr << "fialed to open start_screen image!!!";
+    }
+    start_screen_sprite.setTexture(start_screen_texture);
+    start_screen_sprite.setOrigin(start_screen_sprite.getLocalBounds().width / 2 , start_screen_sprite.getLocalBounds().height / 2);
+    start_screen_sprite.setPosition(X_WINDOW/2 , Y_WINDOW/2);
 
     plant_label = new Plant_label();
     make_dot_board();
@@ -148,11 +153,26 @@ void Game::zombie_time_handeling(){
     }
 }
 void Game::run(){
+    while((!is_clicked_on_first_screen) && (window.isOpen())){
+        window.clear(Color::Black);
+        window.draw(start_screen_sprite);
+        while(window.pollEvent(event)){
+            if(event.type == Event::EventType::Closed){
+                window.close();
+            }
+        }
+        if(event.type == Event::EventType::MouseButtonPressed){
+            if(event.mouseButton.button == Mouse::Left){
+                is_clicked_on_first_screen = true;
+            }
+        }
+        window.display();
+
+    }
     while((window.isOpen()) && (!is_game_over) && (!is_won)){
         window.clear(Color::Black);
         zombie_time_handeling();
         check_side();
-        
         window.draw(frontyard_sprite);
         plant_label->render_plant_label(window , &last_time_made_plant , &clock , collected_sun);
         for(auto& zombie : zombies){
@@ -176,6 +196,7 @@ void Game::run(){
         //cout << collected_sun << endl;
         check_game_over();
         check_won();
+        
         window.display();
     }
 

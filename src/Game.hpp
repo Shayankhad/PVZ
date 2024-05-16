@@ -48,6 +48,9 @@ private:
     bool is_won = false;
     Texture you_win_texture;
     Sprite you_win_sprite;
+    Texture start_screen_texture;
+    Sprite start_screen_sprite;
+    bool is_clicked_on_first_screen = false;
 };
 
 #endif

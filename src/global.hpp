@@ -30,7 +30,7 @@
 #define SUN_IAMGE_ADDRESS "files/pics/Sun.png"
 #define ZOMBIES_ATE_YOUR_BRAINS_IMAGE_ADDRESS "files/pics/THE ZOMBIES ATE YOUR BRAINS!.png"
 #define YOU_WIN_IMAGE_ADDRESS "files/pics/you win.png"
-#define START_SCREEN_IMAGE_ADDRESS "files/pics/start_screen"
+#define START_SCREEN_IMAGE_ADDRESS "files/pics/start_screen.png"
 #define PEA_DAMAGE 25
 #define ZOMBIE_HEALTH 100
 #define ZOMBIE_SPEED -0.2
