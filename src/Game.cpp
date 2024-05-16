@@ -4,7 +4,6 @@
 Game::Game(){
     load_from_files();
     plant_label = new Plant_label();
-    sunflower_label = new Sunflower_label();
     make_dot_board();
     make_sun();
     last_time_made_plant = seconds(0);
@@ -182,7 +181,6 @@ void Game::run_core_game(){
         check_side();
         window.draw(frontyard_sprite);
         plant_label->render_plant_label(window , &last_time_made_plant , &clock , collected_sun);
-        sunflower_label->render_sunflower_label(window);
         for(auto& zombie : zombies){
             zombie->render_zombie(window);
             for(auto& plant : plant_vec){
