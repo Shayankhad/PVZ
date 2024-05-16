@@ -153,7 +153,7 @@ void Game::zombie_time_handeling(){
         last_time_made_zombie = clock.getElapsedTime();
     }
 }
-void Game::run(){
+void Game::run_start_menu(){
     while((!is_clicked_on_first_screen) && (window.isOpen())){
         window.clear(Color::Black);
         window.draw(start_screen_sprite);
@@ -170,6 +170,9 @@ void Game::run(){
         window.display();
 
     }
+}
+
+void Game::run_core_game(){
     while((window.isOpen()) && (!is_game_over) && (!is_won)){
         if(event.type == Event::EventType::Closed){
             window.close();
@@ -204,7 +207,9 @@ void Game::run(){
         
         window.display();
     }
+}
 
+void Game::run_game_over(){
     while((window.isOpen()) && (is_game_over)){
         while(window.pollEvent(event)){
             if(event.type == Event::EventType::Closed){
@@ -215,7 +220,9 @@ void Game::run(){
         window.draw(game_over_sprite);
         window.display();
     }
-    
+}
+
+void Game::run_you_win(){
     while((window.isOpen()) && (is_won)){
         while(window.pollEvent(event)){
             if(event.type == Event::EventType::Closed){
@@ -226,7 +233,13 @@ void Game::run(){
         window.draw(you_win_sprite);
         window.display();
     }
+}
 
+void Game::run(){
+    run_start_menu();
+    run_core_game();
+    run_game_over();
+    run_you_win();
 }
 
 Time Game::get_elapsed_time(){
@@ -300,15 +313,6 @@ void Game::check_won(){
 }
 
 Game::~Game(){
-    zombies.clear();
-    delete zombie_temp;
-    plant_vec.clear();
-    delete plant_label;
-    dot_vec.clear();
-    delete temp_dot;
-    sun_vec.clear();
-    delete sun_temp;
-    delete sunflower_label;
 }
 
 

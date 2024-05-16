@@ -12,6 +12,10 @@ public:
     void make_zombie();
     void zombie_time_handeling();
     void run();
+    void run_start_menu();
+    void run_core_game();
+    void run_game_over();
+    void run_you_win();
     Time get_elapsed_time();
     void check_dead_zombies();
     void make_plant(Vector2f plant_position);
