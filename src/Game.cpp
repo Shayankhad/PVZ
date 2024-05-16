@@ -301,8 +301,14 @@ void Game::check_game_over(){
 void Game::check_won(){
     if(clock.getElapsedTime().asSeconds() >= WIN_TIME_TIME){
         is_won = true;
+        
     }
 }
+
+// void make_sunflower(Vector2f sunflower_position){
+//     sunflower_temp = new Sunflower(sunflower_position);
+//     sunflower_vector.emplace_back(sunflower_temp);
+// }
 
 
 Game::~Game(){

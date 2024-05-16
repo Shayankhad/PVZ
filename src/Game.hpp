@@ -22,6 +22,7 @@ public:
     void sun_time_handeling();
     void check_game_over();
     void check_won();
+    void make_sunflower(Vector2f sunflower_position);
     ~Game();
 
 private:
@@ -53,6 +54,8 @@ private:
     Sprite start_screen_sprite;
     bool is_clicked_on_first_screen = false;
     Sunflower_label *sunflower_label;
+    vector <Sunflower*> sunflower_vector; 
+    Sunflower *sunflower_temp;
 };
 
 #endif

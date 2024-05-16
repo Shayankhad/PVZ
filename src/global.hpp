@@ -17,6 +17,7 @@
 #include "Dot.hpp"
 #include "Sun.hpp"
 #include "Sunflower_label.hpp"
+#include "Sunflower.hpp"
 #define X_WINDOW 1400
 #define Y_WINDOW 600
 #define WINDOWS_TITLE "PVZ"
@@ -32,6 +33,7 @@
 #define ZOMBIES_ATE_YOUR_BRAINS_IMAGE_ADDRESS "files/pics/THE ZOMBIES ATE YOUR BRAINS!.png"
 #define YOU_WIN_IMAGE_ADDRESS "files/pics/you win.png"
 #define START_SCREEN_IMAGE_ADDRESS "files/pics/start_screen.png"
+#define SUN_FLOWER_IMAGE_ADDRESS "sunflower.png"
 #define PEA_DAMAGE 25
 #define ZOMBIE_HEALTH 100
 #define ZOMBIE_SPEED -0.2
