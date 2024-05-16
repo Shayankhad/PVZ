@@ -64,6 +64,7 @@ private:
     Text *text;
     Font *font;
     Music music;
+
 };
 
 #endif

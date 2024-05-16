@@ -38,6 +38,8 @@
 #define SUN_FLOWER_IMAGE_ADDRESS "files/pics/dsunflower.png"
 #define FONT_ADDRESS "files/Font/arial.ttf"
 #define SONG_ADDRESS "files/audio/song.ogg"
+#define SUNFLOWER_CLOSED_IMAGE_ADDRESS "files/pics/icon_sunflower_dim.png"
+#define WALNUT_CLOSED_IMAGE_ADDRESS "files/pics/icon_walnut_dim.png"
 #define PEA_DAMAGE 25
 #define ZOMBIE_HEALTH 100
 #define ZOMBIE_SPEED -0.2

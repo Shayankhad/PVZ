@@ -3,13 +3,14 @@
 
 Game::Game(){
     load_from_files();
-    plant_label = new Plant_label();
     make_dot_board();
     make_sun();
-    last_time_made_plant = seconds(0);
+    
 }
 
 void Game::load_from_files(){
+    last_time_made_plant = seconds(0);
+
     window.create(VideoMode(X_WINDOW , Y_WINDOW) , WINDOWS_TITLE);
     if(!frontyard_tex.loadFromFile(BACKGROUND_IMAGE_ADDRESS)){
         cerr << "fialed to open frontyard image!!!";
@@ -38,6 +39,10 @@ void Game::load_from_files(){
     if(!music.openFromFile(SONG_ADDRESS)){
         cerr << "fialed to open song!!!";
     }
+
+    sunflower_label = new Sunflower_label();
+
+    plant_label = new Plant_label();
 }
 
 void Game::mouse_press_handeling(){
@@ -204,6 +209,7 @@ void Game::run_core_game(){
         for(auto& sun : sun_vec){
             sun->render_sun(&window);
         }
+        window.draw(*sunflower_label->get_sunflower_label());
         cout << collected_sun << endl;
         check_game_over();
         check_won();
@@ -239,6 +245,7 @@ void Game::run_you_win(){
 }
 
 void Game::run(){
+    music.setLoop(true);
     music.play();
     run_start_menu();
     run_core_game();

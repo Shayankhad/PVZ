@@ -6,7 +6,7 @@
 class Sunflower_label {
 public:
     Sunflower_label() {
-        if (!sunflower_label_texture.loadFromFile(SUNFLOWER_LABEL_ADDRESS)) {
+        if (!sunflower_label_texture.loadFromFile(SUNFLOWER_CLOSED_IMAGE_ADDRESS)) {
             cerr << "Failed to load sunflower label image";
         }
         sunflower_label_sprite.setTexture(sunflower_label_texture);
