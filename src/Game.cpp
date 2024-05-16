@@ -69,7 +69,7 @@ void Game::sun_mouse_handeling(){
             for(vector<Sun*>::size_type i = 0 ; i <sun_vec.size() ; i++){
                 if(sun_vec[i]->get_sun_sprite()->getGlobalBounds().contains(event.mouseButton.x , event.mouseButton.y )){
                     sun_vec.erase(sun_vec.begin() + i);
-                    collected_sun += 25;
+                    collected_sun += SUN_PRICE;
                 }
             }
         }
@@ -204,7 +204,7 @@ void Game::run_core_game(){
         for(auto& sun : sun_vec){
             sun->render_sun(&window);
         }
-        //cout << collected_sun << endl;
+        cout << collected_sun << endl;
         check_game_over();
         check_won();
         
@@ -303,7 +303,7 @@ void Game::sun_time_handeling(){
 
 void Game::check_game_over(){
     for(auto& zombie : zombies){
-        if(zombie->get_zombie_x_position() <= 230 ){
+        if(zombie->get_zombie_x_position() <= ZOMBIE_X_LINE_WIN_CONDITION){
             is_game_over = true;
         }
     }

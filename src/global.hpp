@@ -49,6 +49,8 @@
 #define PEA_SPEED 4
 #define WIN_TIME_TIME 300
 #define AFETER_SECOND_PLANT_AVAILABLE 5
+#define SUN_PRICE 25
+#define ZOMBIE_X_LINE_WIN_CONDITION 230 
 using namespace std;
 using namespace sf;
 #endif
